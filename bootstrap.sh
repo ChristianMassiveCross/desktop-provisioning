@@ -5,6 +5,7 @@ sudo apt-get install git python-pip python-yaml python-jinja2
 sudo pip install ansible==1.8.2
 git config --global user.name "Oolong Brothers"
 git config --global user.email oolongbrothers@gmx.net
+git config --global push.default simple
 cd ~
 mkdir Code
 cd Code

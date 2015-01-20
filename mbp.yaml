@@ -1,6 +1,5 @@
-- name: Update apt cache
+- name: Basic hardware setup
   hosts: local
-  connection: local
   sudo: yes
   pre_tasks:
     - apt: update_cache=yes cache_valid_time=360

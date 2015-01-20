@@ -1,0 +1,8 @@
+#!/bin/sh
+case "$1" in
+ resume|thaw)
+ service network-manager stop
+ rm /var/lib/NetworkManager/NetworkManager.state
+ service network-manager start
+ ;;
+esac

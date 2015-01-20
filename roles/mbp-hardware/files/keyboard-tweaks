@@ -1,0 +1,4 @@
+sleep 1
+echo "$(date): Loading keyboard tweaks" >> /opt/keyboard-tweaks/keyboard-tweaks.log
+gsettings set org.gnome.settings-daemon.plugins.keyboard active false >> /opt/keyboard-tweaks/keyboard-tweaks.log
+/usr/bin/xmodmap /opt/keyboard-tweaks/xmodmap.conf >> /opt/keyboard-tweaks/keyboard-tweaks.log

@@ -1,0 +1,7 @@
+- name: Detect root file system device UUID
+  shell: "blkid -o export $(df / --local --output=source | tail -n1) | grep ^UUID="
+  changed_when: False
+  register: device_uuid
+
+- name: Configure kernel boot parameters for refind
+  template: src=refind_linux.conf dest=/boot/refind_linux.conf

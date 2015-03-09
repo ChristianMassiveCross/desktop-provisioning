@@ -21,5 +21,6 @@
   sudo: yes
   roles:
     - mbp-hardware/fedora/power-management
+    - mbp-hardware/all/boot
     - mbp-hardware/fedora/keyboard
     - development/fedora/git

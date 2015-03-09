@@ -21,3 +21,4 @@
   roles:
     - mbp-hardware/fedora/power-management
     - mbp-hardware/fedora/keyboard
+    - development/fedora/git

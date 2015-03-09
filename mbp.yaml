@@ -1,10 +1,11 @@
-- name: Detect operating system  
+- name: Operating system detection  
   hosts: all
   tasks:
-    - group_by: key=os_{{ ansible_distribution }}
+    - name: Dectects Linux distribution
+      group_by: key=os_{{ ansible_distribution }}
       changed_when: False
 
-- name: Basic hardware setup - Ubuntu style
+- name: Basic hardware setup - Ubuntu
   hosts: os_Ubuntu
   sudo: yes
   pre_tasks:
@@ -15,7 +16,7 @@
     - mbp-hardware/ubuntu/power-management
     - mbp-hardware/ubuntu/keyboard
 
-- name: Basic hardware setup - Fedora style
+- name: Basic hardware setup - Fedora
   hosts: os_Fedora
   sudo: yes
   roles:

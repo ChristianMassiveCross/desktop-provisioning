@@ -1,0 +1,6 @@
+# Keyboard
+- name: Defines fn-key-swap.service
+  copy: src=fn-key-swap.service dest=/usr/lib/systemd/system/fn-key-swap.service
+
+- name: Starts and enables fn-key-swap.service
+  service: name=fn-key-swap.service enabled=true state=started

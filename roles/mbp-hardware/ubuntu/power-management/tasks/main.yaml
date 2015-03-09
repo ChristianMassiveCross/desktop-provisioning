@@ -1,0 +1,20 @@
+# Power management
+- name: Installs macfanctl
+  apt: name={{ item }} state=latest
+  with_items:
+    - macfanctld
+
+- name: Installs tlp power management
+  apt_repository: repo='ppa:linrunner/tlp'
+- apt: name={{ item }} state=latest
+  with_items:
+    - tlp
+    - tlp-rdw
+
+- name: Fixes interrupt gpe66 hogging CPU
+  copy: src=rc.local dest=/etc/rc.local mode=755
+# to find offending interrupts:
+# grep . -r /sys/firmware/acpi/interrupts/
+
+- name: wifi resume fix
+  copy: src=99_wifi-resume-fix dest=/etc/pm/sleep.d/99_wifi-resume-fix mode=755

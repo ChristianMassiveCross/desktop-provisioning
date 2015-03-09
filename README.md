@@ -18,6 +18,6 @@ Run the script corresponding to your distribution from the `bootstrap` folder.
 ## Run ansible provisioning
 Assuming all went well during the boostrap process, run the following command on your machine:
 
-    ansible-playbook mbp.yaml -i inventory -K
+    ansible-playbook mbp.yaml -i inventory --diff --ask-sudo-pass
 
 Which distribution you are running will be auto-detected.

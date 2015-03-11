@@ -1,0 +1,10 @@
+- name: Broadcom wireless driver
+  yum: name={{ item }}
+  with_items:
+    - akmod-wl
+    - kernel-devel
+  register: driver_installation
+
+- name: Activates driver for kernel
+  command: akmods --akmod wl
+  when: driver_installation.changed

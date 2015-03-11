@@ -1,0 +1,2 @@
+- name: Installs autojump
+  yum: name=autojump state=present

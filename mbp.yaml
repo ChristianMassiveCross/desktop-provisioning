@@ -24,4 +24,5 @@
     - mbp-hardware/all/boot
     - mbp-hardware/fedora/keyboard
     - mbp-hardware/fedora/wireless
+    - base/fedora/autojump
     - development/fedora/git

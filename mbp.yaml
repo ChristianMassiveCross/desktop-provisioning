@@ -19,10 +19,22 @@
 - name: Basic hardware setup - Fedora
   hosts: os_Fedora
   sudo: yes
+  vars:
+    fedy:
+      - disk_io_scheduler
+      - font_rendering
+      - media_codecs
+      - adobe_flash
+      # - dvd_playback
+      - sublime_text3
+    test:
+      test1: test
+      test2: testi
   roles:
     - mbp-hardware/fedora/power-management
     - mbp-hardware/all/boot
     - mbp-hardware/fedora/keyboard
     - mbp-hardware/fedora/wireless
     - base/fedora/autojump
+    - base/fedora/fedy
     - development/fedora/git

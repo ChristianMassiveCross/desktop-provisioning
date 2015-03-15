@@ -1,0 +1,34 @@
+# Checks whether repo packages are installed
+
+- name: Checks if rpmfusion-free repo is installed
+  command: rpm -q rpmfusion-free-release
+  register: rpmfusion_free_installed
+  ignore_errors: True
+  changed_when: rpmfusion_free_installed | failed
+
+- name: Checks if rpmfusion-nonfree repo is installed
+  command: rpm -q rpmfusion-nonfree-release
+  register: rpmfusion_nonfree_installed
+  ignore_errors: True
+  changed_when: rpmfusion_nonfree_installed | failed
+
+# Installs missing repo packages
+
+- name: Installs rpmfusion-free yum repo
+  yum:
+    name: http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm
+    state: present
+  when: rpmfusion_free_installed | failed
+
+- name: Installs rpmfusion-nonfree yum repo
+  yum:
+    name: http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm
+    state: present
+  when: rpmfusion_nonfree_installed | failed
+
+# Installs packages, if any supplied
+
+- name: Install packages
+  yum: name={{ item }} state=present
+  with_items: packages
+  when: packages is defined

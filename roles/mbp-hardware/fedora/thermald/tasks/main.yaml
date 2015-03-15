@@ -1,0 +1,2 @@
+- name: Starts thermald service
+  service: name=thermald.service state=started

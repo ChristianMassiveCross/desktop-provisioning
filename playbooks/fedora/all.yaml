@@ -11,10 +11,10 @@
   hosts: os_Fedora_21
   sudo: yes
   roles:
-    - role: base/fedora/fedy
+    - role: source/fedora/fedy
       targets:
         - disk_io_scheduler
-    - role: base/fedora/fedora_repos
+    - role: source/fedora/fedora_repos
       packages:
         - autojump
         - ranger
@@ -23,10 +23,10 @@
   hosts: os_Fedora_21
   sudo: yes
   roles:
-    - role: base/fedora/fedora_repos
+    - role: source/fedora/fedora_repos
       packages:
         - gitg
-    - role: base/fedora/fedy
+    - role: source/fedora/fedy
       targets:
         - font_rendering
         - media_codecs

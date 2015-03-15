@@ -13,6 +13,7 @@
   roles:
     - role: source/fedora/fedy
       targets:
+        - color_prompt
         - disk_io_scheduler
     - role: source/fedora/fedora_repos
       packages:
@@ -23,13 +24,23 @@
   hosts: os_Fedora_21
   sudo: yes
   roles:
-    - role: source/fedora/fedora_repos
-      packages:
-        - gitg
     - role: source/fedora/fedy
       targets:
         - font_rendering
         - media_codecs
         # - dvd_playback
         - adobe_flash
+        - elegance_colors
+        - numix_themes
+
+- name: Application setup - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: source/fedora/fedora_repos
+      packages:
+        - gitg
+    - role: source/fedora/fedy
+      targets:
         - sublime_text3
+

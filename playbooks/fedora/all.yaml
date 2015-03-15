@@ -40,8 +40,10 @@
   roles:
     - role: source/fedora/fedora
       packages:
+        - terminator
         - gitg
     - role: source/fedora/fedy
       targets:
         - sublime_text3
 
+        - google_chrome

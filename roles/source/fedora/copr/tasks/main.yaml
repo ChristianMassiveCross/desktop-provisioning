@@ -1,0 +1,16 @@
+- name: Checks if copr repository {{ user }}/{{ project }} is installed
+  stat: path=/etc/yum.repos.d/_copr_{{ user }}-{{ project }}.repo
+  register: repo_file
+
+- name: Installs yum-plugin-copr
+  yum: name=yum-plugin-copr state=present
+  when: repo_file.stat.exists is defined and not repo_file.stat.exists
+
+- name: Installs copr repository {{ user }}/{{ project }}
+  command: yum copr enable -y {{ user }}/{{ project }}
+  when: repo_file.stat.exists is defined and not repo_file.stat.exists 
+
+- name: Installs packages from copr repo, if supplied
+  yum: name={{ item }} state=present
+  with_items: packages
+  when: packages is defined

@@ -14,3 +14,4 @@
 - name: Runs fedy targets
   command: fedy -e {{ item }}
   with_items: targets
+  when: targets is defined

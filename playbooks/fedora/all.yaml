@@ -1,0 +1,35 @@
+- name: Hardware setup - Fedora/MBP
+  hosts: "os_Fedora_21:&hardware_MacBookPro11,1"
+  sudo: yes
+  roles:
+    - mbp-hardware/fedora/power-management
+    - mbp-hardware/all/boot
+    - mbp-hardware/fedora/keyboard
+    - mbp-hardware/fedora/wireless
+
+- name: Shell setup - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: base/fedora/fedy
+      targets:
+        - disk_io_scheduler
+    - role: base/fedora/fedora_repos
+      packages:
+        - autojump
+        - ranger
+
+- name: Gnome3 setup - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: base/fedora/fedora_repos
+      packages:
+        - gitg
+    - role: base/fedora/fedy
+      targets:
+        - font_rendering
+        - media_codecs
+        # - dvd_playback
+        - adobe_flash
+        - sublime_text3

@@ -1,2 +1,0 @@
-- name: Installs gitg
-  yum: name=gitg state=installed

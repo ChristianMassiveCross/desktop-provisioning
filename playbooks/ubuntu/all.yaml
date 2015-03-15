@@ -1,0 +1,10 @@
+- name: Hardware setup - Ubuntu
+  hosts: os_Ubuntu_14.10
+  sudo: yes
+  pre_tasks:
+    - apt: update_cache=yes cache_valid_time=360
+    - apt: name=macfanctld state=latest
+    - apt: upgrade=yes
+  roles:
+    - mbp-hardware/ubuntu/power-management
+    - mbp-hardware/ubuntu/keyboard

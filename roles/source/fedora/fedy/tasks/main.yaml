@@ -13,4 +13,4 @@
 
 - name: Runs fedy targets
   command: fedy -e {{ item }}
-  with_items: fedy
+  with_items: targets

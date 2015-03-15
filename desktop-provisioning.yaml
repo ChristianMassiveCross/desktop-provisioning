@@ -1,0 +1,20 @@
+- name: System detection
+  hosts: all
+  tasks:
+    - name: Dectects Linux distribution and version
+      group_by: key=os_{{ ansible_distribution }}_{{ ansible_distribution_major_version }}
+      changed_when: False
+    - name: Prints detected distribution
+      debug:
+        msg: "os_{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+    - name: Detects hardware
+      group_by: key=hardware_{{ ansible_product_name}}
+      changed_when: False
+    - name: Prints detected hardware
+      debug:
+        msg: "hardware_{{ ansible_product_name}}"
+
+- include: playbooks/ubuntu/all.yaml
+
+- include: playbooks/fedora/all.yaml

@@ -1,0 +1,2 @@
+- name: Add suspend launcher
+  copy: src=suspend.desktop dest={{ ansible_env["HOME"] }}/.local/share/applications/

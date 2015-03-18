@@ -40,6 +40,7 @@
   sudo: no
   roles:
     - gnome/all/gvfs-mount
+    - gnome/all/power-commands
   tags: user-specific
 
 - name: Application setup - Fedora

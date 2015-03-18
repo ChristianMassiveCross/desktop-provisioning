@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Suspend
+GenericName=suspend
+Comment=Suspends the computer
+Exec=systemctl suspend
+Terminal=false
+Icon=process-working-symbolic.svg
+Type=Application
+Categories=Network;

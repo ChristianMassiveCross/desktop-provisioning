@@ -1,0 +1,2 @@
+- name: restart disable-gpe66.service
+  service: name=disable-gpe66.service state=restarted

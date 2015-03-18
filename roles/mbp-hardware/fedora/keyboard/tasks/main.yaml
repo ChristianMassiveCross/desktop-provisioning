@@ -1,6 +1,9 @@
 # Keyboard
-- name: Defines fn-key-swap.service
+- name: Define fn-key-swap.service
   copy: src=fn-key-swap.service dest=/usr/lib/systemd/system/fn-key-swap.service
+  notify: restart fn-key-swap.service
 
-- name: Starts and enables fn-key-swap.service
+- meta: flush_handlers
+
+- name: Start and enable fn-key-swap.service
   service: name=fn-key-swap.service enabled=true state=started

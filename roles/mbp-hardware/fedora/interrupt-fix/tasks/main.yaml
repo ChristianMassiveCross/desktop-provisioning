@@ -1,6 +1,9 @@
 # Fix interrupt gpe66 hogging CPU
-- name: Defines disable-gpe66.service
-  copy: src=disable-gpe66.service dest=/usr/lib/systemd/system/disable-gpe66.service
+- name: Define disable-gpe66.service
+  copy: src=disable-gpe66.service dest=/usr/lib/systemd/system/
+  notify: restart disable-gpe66.service
 
-- name: Starts and enables disable-gpe.service
+- meta: flush_handlers
+
+- name: Start and enable disable-gpe.service
   service: name=disable-gpe66.service enabled=true state=started

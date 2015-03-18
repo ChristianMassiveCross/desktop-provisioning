@@ -8,6 +8,7 @@
     - mbp-hardware/all/boot
     - mbp-hardware/fedora/keyboard
     - mbp-hardware/fedora/wireless
+    - mbp-hardware/fedora/suspend-fix
 
 - name: Shell setup - Fedora
   hosts: os_Fedora_21

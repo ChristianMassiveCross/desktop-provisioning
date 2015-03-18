@@ -1,0 +1,2 @@
+- name: restart disable-lid0-wakeup.service
+  service: name=disable-lid0-wakeup.service state=restarted

@@ -1,0 +1,10 @@
+[Unit]
+Description=Disables wakeup from LID0
+
+[Service]
+ExecStart=/usr/bin/bash -c 'echo LID0 > /proc/acpi/wakeup'
+ExecStop=/usr/bin/bash -c 'echo LID0 > /proc/acpi/wakeup'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

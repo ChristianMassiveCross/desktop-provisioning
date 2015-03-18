@@ -51,8 +51,11 @@
       packages:
         - terminator
         - gitg
+        - geary
+        - california
+        - antimicro
+        - tomahawk
     - role: source/fedora/fedy
       targets:
         - sublime_text3
-
         - google_chrome

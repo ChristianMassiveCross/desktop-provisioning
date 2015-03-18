@@ -4,11 +4,3 @@
 
 - name: Starts and enables disable-gpe.service
   service: name=disable-gpe66.service enabled=true state=started
-
-# thermald
-
-- name: Installs TLP power management
-  yum: name={{ item }} state=latest
-  with_items:
-    - tlp
-    - tlp-rdw

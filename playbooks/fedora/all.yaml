@@ -2,8 +2,9 @@
   hosts: "os_Fedora_21:&hardware_MacBookPro11,1"
   sudo: yes
   roles:
-    - mbp-hardware/fedora/power-management
+    - mbp-hardware/fedora/interrupt-fix
     - mbp-hardware/fedora/thermald
+    - { role: source/fedora/fedora, packages: ["tlp", "tlp-rdw"] }
     - mbp-hardware/all/boot
     - mbp-hardware/fedora/keyboard
     - mbp-hardware/fedora/wireless

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Logout
+GenericName=logout
+Comment=Logs out the current user computer
+Exec=gnome-session-quit --logout
+Terminal=false
+Icon=gnome-lockscreen.svg
+Type=Application
+Categories=Network;

@@ -5,6 +5,6 @@ GenericName=suspend
 Comment=Suspends the computer
 Exec=systemctl suspend
 Terminal=false
-Icon=process-working-symbolic.svg
+Icon=gnome-logout.svg
 Type=Application
 Categories=Network;

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Reboot
+GenericName=restart
+Comment=Reboots the computer
+Exec=gnome-session-quit --reboot
+Terminal=false
+Icon=rotate.svg
+Type=Application
+Categories=Network;

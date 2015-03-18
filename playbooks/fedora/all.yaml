@@ -35,13 +35,13 @@
         - adobe_flash
         - elegance_colors
         - numix_themes
+    - gnome/all/power-commands
 
 - name: Gnome3 setup user specific - Fedora
   hosts: os_Fedora_21
   sudo: no
   roles:
     - gnome/all/gvfs-mount
-    - gnome/all/power-commands
   tags: user-specific
 
 - name: Application setup - Fedora

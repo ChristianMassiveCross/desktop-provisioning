@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Power-off
+GenericName=shut-down
+Comment=Turns the computer off
+Exec=gnome-session-quit --power-off
+Terminal=false
+Icon=gnome-shutdown.svg
+Type=Application
+Categories=Network;

@@ -1,2 +1,11 @@
 - name: Add suspend launcher
-  copy: src=suspend.desktop dest={{ ansible_env["HOME"] }}/.local/share/applications/
+  copy: src=suspend.desktop dest=/usr/share/applications/
+
+- name: Add reboot launcher
+  copy: src=reboot.desktop dest=/usr/share/applications/
+
+- name: Add power-off launcher
+  copy: src=power-off.desktop dest=/usr/share/applications/
+
+- name: Add logout launcher
+  copy: src=logout.desktop dest=/usr/share/applications/

@@ -34,6 +34,13 @@
         - elegance_colors
         - numix_themes
 
+- name: Gnome3 setup user specific - Fedora
+  hosts: os_Fedora_21
+  sudo: no
+  roles:
+    - gnome/all/gvfs-mount
+  tags: user-specific
+
 - name: Application setup - Fedora
   hosts: os_Fedora_21
   sudo: yes

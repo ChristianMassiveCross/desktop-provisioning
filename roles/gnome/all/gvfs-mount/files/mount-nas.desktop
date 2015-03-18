@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=mount-nas
+GenericName=mount-nas
+Comment=Mount NAS on gvfs
+Exec=gvfs-mount smb://nas.home/data/
+Terminal=false
+Icon=network_fs.svg
+Type=Application
+Categories=Network;

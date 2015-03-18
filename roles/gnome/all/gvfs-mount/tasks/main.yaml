@@ -1,0 +1,18 @@
+- name: Get uid for ansible_user
+  command: id -u
+  changed_when: false
+  register: uid
+
+- name: Add mount-nas.desktop file to autostart
+  copy: src=mount-nas.desktop dest={{ ansible_env["HOME"] }}/.config/autostart/
+
+- name: Try to mount nas
+  command:
+    name: gvfs-mount smb://nas.home/data/
+    creates: '/run/user/{{ uid.stdout }}/gvfs/smb-share:server=nas.home,share=data'
+
+- name: Link gvfs mount to ~/nas
+  file:
+    state: link
+    path: '{{ ansible_env["HOME"] }}/nas'
+    src: '/run/user/{{ uid.stdout }}/gvfs/smb-share:server=nas.home,share=data'

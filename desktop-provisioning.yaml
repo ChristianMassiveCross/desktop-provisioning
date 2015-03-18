@@ -15,6 +15,10 @@
       debug:
         msg: "hardware_{{ ansible_product_name}}"
 
+  # Need to add all tags here as well, since otherwise the os/hardware
+  # detection will not be run when specifying the tag
+  tags: user-specific
+
 - include: playbooks/ubuntu/all.yaml
 
 - include: playbooks/fedora/all.yaml

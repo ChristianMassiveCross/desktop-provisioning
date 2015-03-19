@@ -40,6 +40,7 @@
         - hunspell-uk
         - hunspell-de
         - hunspell-sv
+        - gnome-shell-extension-gpaste
     - gnome/all/power-commands
 
 - name: Gnome3 setup user specific - Fedora

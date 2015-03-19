@@ -35,6 +35,11 @@
         - adobe_flash
         - elegance_colors
         - numix_themes
+    - role: source/fedora/fedora
+      packages:
+        - hunspell-uk
+        - hunspell-de
+        - hunspell-sv
     - gnome/all/power-commands
 
 - name: Gnome3 setup user specific - Fedora

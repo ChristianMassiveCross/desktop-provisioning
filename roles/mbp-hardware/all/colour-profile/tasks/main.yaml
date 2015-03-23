@@ -1,8 +1,20 @@
-- name: Copy colour profile
-  command: cp {{ icc_profile_path }} "{{ ansible_env['HOME'] }}/.local/share/icc/Color LCD-E0BA5838-6BE1-D819-C82B-5FE445E5ABAF.icc"
-  args:
-    creates: "{{ ansible_env['HOME'] }}/.local/share/icc/Color LCD-E0BA5838-6BE1-D819-C82B-5FE445E5ABAF.icc"
+- name: Fetch colour profile from configured path
+  fetch:
+    src: "{{ ansible_env['HOME'] }}/nas/Hardware/MacBookPro11_1/AppleColorLCD.icc"
+    dest: /tmp/ColorLCD.icc
+    mode: 755
+    flat: yes
 
-- name: Inform about manual TODO
-  debug:
-    msg: "Manual TODO: Activate colour profile 'Color LCD' in GNOME settings"
+- name: Import colour profile
+  command: colormgr import-profile /tmp/ColorLCD.icc
+  args:
+    creates: "{{ ansible_env['HOME'] }}/.local/share/icc/ColorLCD.icc"
+  register: profile_imported
+
+- name: Adds colour profile default to device
+  command: colormgr device-add-profile "xrandr-Apple Computer Inc-Color LCD" "icc-8a9627e6323f33eeb2bd566da35e9fc6"
+  when: profile_imported.changed
+
+- name: Makes colour profile default for device
+  command: colormgr device-make-profile-default "xrandr-Apple Computer Inc-Color LCD" "icc-8a9627e6323f33eeb2bd566da35e9fc6"
+  when: profile_imported.changed

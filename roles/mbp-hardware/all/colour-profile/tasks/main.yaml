@@ -1,0 +1,8 @@
+- name: Copy colour profile
+  command: cp {{ icc_profile_path }} "{{ ansible_env['HOME'] }}/.local/share/icc/Color LCD-E0BA5838-6BE1-D819-C82B-5FE445E5ABAF.icc"
+  args:
+    creates: "{{ ansible_env['HOME'] }}/.local/share/icc/Color LCD-E0BA5838-6BE1-D819-C82B-5FE445E5ABAF.icc"
+
+- name: Inform about manual TODO
+  debug:
+    msg: "Manual TODO: Activate colour profile 'Color LCD' in GNOME settings"

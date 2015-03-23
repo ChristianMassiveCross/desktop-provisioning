@@ -50,6 +50,13 @@
     - gnome/all/gvfs-mount
   tags: user-specific
 
+- name: Gnome3 hardware-specific setup - Fedora/MBP
+  hosts: "os_Fedora_21:&hardware_MacBookPro11,1"
+  sudo: no
+  roles:
+    - mbp-hardware/all/colour-profile
+  tags: user-specific
+
 - name: Application setup - Fedora
   hosts: os_Fedora_21
   sudo: yes

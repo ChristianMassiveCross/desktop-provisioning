@@ -1,0 +1,1 @@
+icc_profile_path: "{{ ansible_env['HOME'] }}/nas/Hardware/MacBookPro11_1/AppleColorLCD.icc"

@@ -28,7 +28,7 @@
 
 # Installs packages, if any supplied
 
-- name: Install packages
+- name: Install packages from rpmfusion repositories
   yum: name={{ item }} state=present
   with_items: packages
   when: packages is defined

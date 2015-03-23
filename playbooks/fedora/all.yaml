@@ -23,6 +23,12 @@
         - autojump
         - ranger
 
+- name: Development setup - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - development/fedora/vagrant
+
 - name: Gnome3 setup - Fedora
   hosts: os_Fedora_21
   sudo: yes

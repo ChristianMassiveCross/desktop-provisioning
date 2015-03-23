@@ -1,0 +1,9 @@
+- name: Install VirtualBox dependencies
+  yum: name=kernel-devel
+
+- name: Install VirtualBox package
+  yum: name=VirtualBox
+  register: vbox_installed
+
+- name: Install VirtualBox and Vagrant packages
+  yum: name=vagrant

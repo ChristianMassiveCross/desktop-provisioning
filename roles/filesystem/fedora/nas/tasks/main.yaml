@@ -1,0 +1,13 @@
+- name: Install cifs
+  yum: name=cifs-utils state=present
+
+- name: Set up credentials file
+  template: src=smbcredentials dest=/root/.smbcredentials mode=600
+
+- name: Mount nas via cifs
+  mount:
+    state: mounted
+    name: "{{ nas_smb_mountpoint }}"
+    src: "{{ nas_smb_share_url }}"
+    fstype: cifs
+    opts: "credentials=/root/.smbcredentials,uid=root,gid=root"

@@ -1,0 +1,7 @@
+repository_path: /path-to/repo-folder
+
+nas_smb_share_url: //server/share
+nas_smb_share_user: user
+nas_smb_share_password: password
+nas_smb_workgroupname: workgroup
+nas_smb_mountpoint: /path-to/mountpoint

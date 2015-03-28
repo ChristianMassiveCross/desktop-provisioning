@@ -1,3 +1,9 @@
+- name: Filesystem setup - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - filesystem/fedora/nas
+
 - name: Hardware setup - Fedora/MBP
   hosts: "os_Fedora_21:&hardware_MacBookPro11,1"
   sudo: yes

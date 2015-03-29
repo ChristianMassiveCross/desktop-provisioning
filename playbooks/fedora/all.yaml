@@ -3,6 +3,7 @@
   sudo: yes
   roles:
     - filesystem/fedora/nas
+  tags: filesystem
 
 - name: Hardware setup - Fedora/MBP
   hosts: "os_Fedora_21:&hardware_MacBookPro11,1"
@@ -15,6 +16,7 @@
     - mbp-hardware/fedora/keyboard
     - mbp-hardware/fedora/wireless
     - mbp-hardware/fedora/suspend-fix
+  tags: hardware
 
 - name: Shell setup - Fedora
   hosts: os_Fedora_21
@@ -28,12 +30,14 @@
       packages:
         - autojump
         - ranger
+  tags: shell
 
 - name: Development setup - Fedora
   hosts: os_Fedora_21
   sudo: yes
   roles:
     - development/fedora/vagrant
+  tags: development
 
 - name: Gnome3 setup - Fedora
   hosts: os_Fedora_21
@@ -54,6 +58,7 @@
         - hunspell-sv
         - gnome-shell-extension-gpaste
     - gnome/all/power-commands
+  tags: gnome
 
 - name: Gnome3 setup user specific - Fedora
   hosts: os_Fedora_21
@@ -67,7 +72,9 @@
   sudo: no
   roles:
     - mbp-hardware/all/colour-profile
-  tags: user-specific
+  tags:
+    - gnome
+    - user-specific
 
 - name: Application setup - Fedora
   hosts: os_Fedora_21
@@ -85,3 +92,4 @@
       targets:
         - sublime_text3
         - google_chrome
+  tags: apps

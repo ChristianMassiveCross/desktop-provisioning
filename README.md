@@ -9,6 +9,9 @@ Distributions:
 * Fedora 21
 * Ubuntu 14.10
 
+Requires:
+* Ansible 1.9.0.1
+
 ## Bootstrapping your machine
 Run the script corresponding to your distribution from the `bootstrap` folder.
 

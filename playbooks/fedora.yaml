@@ -1,9 +1,9 @@
-- name: Filesystem setup - Fedora
+- name: Basic filesystem setup - Fedora
   hosts: os_Fedora_21
   sudo: yes
   roles:
-    - filesystem/fedora/nas
-  tags: filesystem
+    - base/fedora/nas
+  tags: base
 
 - name: Hardware setup - Fedora/MBP
   hosts: "os_Fedora_21:&hardware_MacBookPro11,1"
@@ -18,7 +18,18 @@
     - mbp-hardware/fedora/wireless
     - mbp-hardware/fedora/suspend-fix
     - mbp-hardware/all/colour-profile
-  tags: hardware
+  tags:
+    - base
+    - hardware
+
+- name: Base setup - Fedora
+  hosts: os_Fedora_21
+  sudo: True
+  roles:
+    - role: source/fedora/fedy
+      targets:
+        - disk_io_scheduler
+  tags: base
 
 - name: Shell setup - Fedora
   hosts: os_Fedora_21
@@ -27,7 +38,6 @@
     - role: source/fedora/fedy
       targets:
         - color_prompt
-        - disk_io_scheduler
     - role: source/fedora/fedora
       packages:
         - autojump

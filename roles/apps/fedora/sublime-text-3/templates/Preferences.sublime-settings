@@ -4,5 +4,6 @@
 		"Vintage",
 		"Markdown"
 	],
-	"shift_tab_unindent": true
+	"shift_tab_unindent": true,
+	"font_size": 9
 }

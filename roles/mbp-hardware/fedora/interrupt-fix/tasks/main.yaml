@@ -1,5 +1,5 @@
 # Fix interrupt gpe66 hogging CPU
-- name: Define disable-gpe66.service
+- name: Install disable-gpe66.service
   copy: src=disable-gpe66.service dest=/usr/lib/systemd/system/
   notify: restart disable-gpe66.service
 

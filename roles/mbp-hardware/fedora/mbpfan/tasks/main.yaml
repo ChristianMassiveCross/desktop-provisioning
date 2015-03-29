@@ -1,0 +1,28 @@
+- name: Unpack archive
+  unarchive: src={{ mbpfan_archive_path }} dest=/tmp copy=no
+  args:
+    creates: /tmp/mbpfan
+
+- name: Copy binary
+  command: cp /tmp/mbpfan/bin/mbpfan /usr/sbin
+  args:
+    creates: /usr/sbin/mbpfan
+
+- name: Copy configuration
+  copy: src=mbpfan.conf dest=/etc/mbpfan.conf
+  notify: restart mbpfan.service
+
+- name: Test setup
+  command: /usr/sbin/mbpfan -t
+  changed_when: False
+
+- name: Install mbpfan.service
+  command: cp /tmp/mbpfan/mbpfan.service /usr/lib/systemd/system/
+  args:
+    creates: /usr/lib/systemd/system/mbpfan.service
+  notify: restart mbpfan.service
+
+- meta: flush_handlers
+
+- name: Start and enable mbpfan.service
+  service: name=mbpfan.service enabled=true state=started

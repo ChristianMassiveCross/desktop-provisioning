@@ -1,0 +1,8 @@
+{
+	"ignored_packages":
+	[
+		"Vintage",
+		"Markdown"
+	],
+	"shift_tab_unindent": true
+}

@@ -84,6 +84,14 @@
         - tomahawk
     - role: source/fedora/fedy
       targets:
-        - sublime_text3
         - google_chrome
   tags: apps
+
+- name: Application setup user specific - Fedora
+  hosts: os_Fedora_21
+  sudo: no
+  roles:
+    - apps/fedora/sublime-text-3
+  tags:
+    - apps
+    - user-specific

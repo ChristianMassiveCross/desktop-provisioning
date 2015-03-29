@@ -17,6 +17,6 @@
 
   tags: always
 
-- include: playbooks/ubuntu/all.yaml
+- include: playbooks/ubuntu.yaml
 
-- include: playbooks/fedora/all.yaml
+- include: playbooks/fedora.yaml

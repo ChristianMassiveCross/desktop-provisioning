@@ -10,6 +10,7 @@
   sudo: yes
   roles:
     - mbp-hardware/fedora/interrupt-fix
+    # - mbp-hardware/fedora/thermald
     - mbp-hardware/fedora/mbpfan
     - { role: source/fedora/fedora, packages: ["tlp", "tlp-rdw"] }
     - mbp-hardware/all/boot

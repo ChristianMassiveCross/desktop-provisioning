@@ -1,17 +1,18 @@
-- name: Fetch colour profile from configured path
-  fetch:
-    src: "{{ ansible_env['HOME'] }}/nas/Hardware/MacBookPro11_1/AppleColorLCD.icc"
-    dest: /tmp/ColorLCD.icc
-    mode: 755
-    flat: yes
-
-- name: Import colour profile
-  command: colormgr import-profile /tmp/ColorLCD.icc
+- name: Import profile system-wide
+  command: cp {{ colour_profile_path }} /usr/share/color/icc/colord/ColorLCD.icc
   args:
-    creates: "{{ ansible_env['HOME'] }}/.local/share/icc/ColorLCD.icc"
+    creates: /usr/share/color/icc/colord/ColorLCD.icc
   register: profile_imported
 
-- name: Adds colour profile default to device
+- name: Wait for profile to be imported
+  action: command colormgr get-profiles
+  register: result
+  until: 'result.stdout.find("Profile ID:    icc-8a9627e6323f33eeb2bd566da35e9fc6") != -1'
+  retries: 10
+  delay: 0.5
+  when: profile_imported.changed
+
+- name: Adds colour profile to device
   command: colormgr device-add-profile "xrandr-Apple Computer Inc-Color LCD" "icc-8a9627e6323f33eeb2bd566da35e9fc6"
   when: profile_imported.changed
 

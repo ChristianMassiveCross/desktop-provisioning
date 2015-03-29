@@ -16,6 +16,7 @@
     - mbp-hardware/fedora/keyboard
     - mbp-hardware/fedora/wireless
     - mbp-hardware/fedora/suspend-fix
+    - mbp-hardware/all/colour-profile
   tags: hardware
 
 - name: Shell setup - Fedora
@@ -65,13 +66,6 @@
   sudo: no
   roles:
     - gnome/all/gvfs-mount
-  tags: user-specific
-
-- name: Gnome3 hardware-specific setup - Fedora/MBP
-  hosts: "os_Fedora_21:&hardware_MacBookPro11,1"
-  sudo: no
-  roles:
-    - mbp-hardware/all/colour-profile
   tags:
     - gnome
     - user-specific

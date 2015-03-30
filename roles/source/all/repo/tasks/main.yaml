@@ -1,0 +1,11 @@
+- name: Install packages from Fedora repositories
+  yum: state=present name={{ item }}
+  sudo: True
+  with_items: packages
+  when: ansible_distribution == "Fedora"
+
+- name: Install packages from Ubuntu repositories
+  apt: state=present name={{ item }}
+  sudo: True
+  with_items: packages
+  when: ansible_distribution == "Ubuntu"

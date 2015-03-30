@@ -29,11 +29,3 @@
     state: present
   sudo: True
   when: rpmfusion_nonfree_installed | failed
-
-# Installs packages, if any supplied
-
-- name: Install packages from rpmfusion repositories
-  yum: name={{ item }} state=present
-  sudo: True
-  with_items: packages
-  when: packages is defined

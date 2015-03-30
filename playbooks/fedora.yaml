@@ -12,7 +12,7 @@
     - mbp-hardware/fedora/interrupt-fix
     # - mbp-hardware/fedora/thermald
     - mbp-hardware/fedora/mbpfan
-    - { role: source/fedora/fedora, packages: ["tlp", "tlp-rdw"] }
+    - { role: source/all/repo, packages: ["tlp", "tlp-rdw"] }
     - mbp-hardware/all/boot
     - mbp-hardware/fedora/keyboard
     - mbp-hardware/fedora/wireless
@@ -38,7 +38,7 @@
     - role: source/fedora/fedy
       targets:
         - color_prompt
-    - role: source/fedora/fedora
+    - role: source/all/repo
       packages:
         - autojump
         - ranger
@@ -63,7 +63,7 @@
         - adobe_flash
         - elegance_colors
         - numix_themes
-    - role: source/fedora/fedora
+    - role: source/all/repo
       packages:
         - hunspell-uk
         - hunspell-de
@@ -85,7 +85,7 @@
   hosts: os_Fedora_21
   sudo: yes
   roles:
-    - role: source/fedora/fedora
+    - role: source/all/repo
       packages:
         - terminator
         - gitg

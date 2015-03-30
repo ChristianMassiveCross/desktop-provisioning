@@ -1,0 +1,7 @@
+- name: Remove superfluous regional language variants
+  file: state=absent dest=/usr/share/myspell/{{ item }}.aff
+  with_items: superfluous_language_variants
+
+- name: Remove superfluous regional language variants
+  file: state=absent dest=/usr/share/myspell/{{ item }}.dic
+  with_items: superfluous_language_variants

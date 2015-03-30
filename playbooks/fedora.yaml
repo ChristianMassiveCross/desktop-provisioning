@@ -65,10 +65,8 @@
         - numix_themes
     - role: source/all/repo
       packages:
-        - hunspell-uk
-        - hunspell-de
-        - hunspell-sv
         - gnome-shell-extension-gpaste
+    - gnome/all/spellcheck
     - gnome/all/power-commands
   tags: gnome
 

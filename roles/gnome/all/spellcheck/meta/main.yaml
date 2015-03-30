@@ -1,0 +1,2 @@
+dependencies:
+  - { role: source/all/repo, packages: [hunspell-en, hunspell-de, hunspell-sv] }

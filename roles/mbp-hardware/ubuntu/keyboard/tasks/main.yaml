@@ -1,15 +1,8 @@
-# Keyboard
-- name: Defines modprobe.d config file for Apple keyboard Fn key swap
+- name: Define modprobe.d config file for Apple keyboard Fn key swap
   copy: src=hid-apple.conf dest=/etc/modprobe.d/hid-apple.conf
   register: hid_apple
 
-- name: Adds kernel boot parameters to enable Fn key swap
+- name: Add kernel boot parameters to enable Fn key swap
   command: sudo update-initramfs -u -k all
   when: hid_apple.changed
 
-- name: Switches command and option keys
-  file: state=directory dest=/opt/keyboard-tweaks
-- file: state=touch dest=/opt/keyboard-tweaks/keyboard-tweaks.log mode=666
-- copy: src=xmodmap.conf dest=/opt/keyboard-tweaks/xmodmap.conf
-- copy: src=keyboard-tweaks dest=/opt/keyboard-tweaks/keyboard-tweaks mode=755
-- copy: src=keyboard-tweaks.desktop dest=/etc/xdg/autostart/keyboard-tweaks.desktop

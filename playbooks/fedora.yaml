@@ -49,6 +49,9 @@
   sudo: yes
   roles:
     - development/fedora/vagrant
+    - role: source/all/repo
+      packages:
+        - meld
   tags: development
 
 - name: Gnome3 setup - Fedora

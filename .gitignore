@@ -2,3 +2,4 @@
 *.sublime-workspace
 TODO
 inventories/host_vars/localhost.yaml
+*~

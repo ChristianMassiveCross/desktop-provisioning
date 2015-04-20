@@ -52,6 +52,7 @@
     - role: source/all/repo
       packages:
         - meld
+        - android-tools
   tags: development
 
 - name: Gnome3 setup - Fedora

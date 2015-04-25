@@ -1,2 +1,0 @@
-- name: Starts and enables thermald service
-  service: name=thermald.service state=started enabled=yes

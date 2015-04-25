@@ -1,2 +1,0 @@
-dependencies:
-    - { role: source/fedora/copr, user: hadrons123, project: thermald, packages: ["thermal-daemon"] }

@@ -82,6 +82,7 @@
         - numix_themes
     - role: source/all/repo
       packages:
+        - gnome-tweak-tool
         - gnome-shell-extension-gpaste
     - gnome/all/spellcheck
     - gnome/all/power-commands

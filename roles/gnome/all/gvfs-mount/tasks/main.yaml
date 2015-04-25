@@ -6,7 +6,7 @@
 - name: Add mount-nas.desktop file to autostart
   copy: src=mount-nas.desktop dest={{ ansible_env["HOME"] }}/.config/autostart/
 
-- name: Try to mount nas
+- name: Try to mount nas (if this fails, you may need to log into the smb share manually in nautilus and save the credentials permanently to the gnome keyring)
   command:
     name: gvfs-mount smb://nas.home/data/
     creates: '/run/user/{{ uid.stdout }}/gvfs/smb-share:server=nas.home,share=data'

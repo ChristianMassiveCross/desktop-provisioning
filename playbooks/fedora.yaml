@@ -83,6 +83,7 @@
     - role: source/all/repo
       packages:
         - gnome-tweak-tool
+        - dconf-editor
         - gnome-shell-extension-gpaste
     - gnome/all/spellcheck
     - gnome/all/power-commands
@@ -93,6 +94,7 @@
   sudo: no
   roles:
     - gnome/all/gvfs-mount
+    - gnome/all/nautilus
   tags:
     - gnome
     - user-specific

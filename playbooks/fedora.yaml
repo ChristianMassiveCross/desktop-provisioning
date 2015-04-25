@@ -6,7 +6,7 @@
     - base/fedora/rpmfusion
   tags: base
 
-- name: Hardware setup - Fedora/MBP
+- name: Hardware setup - Fedora/MBP 11,1
   hosts: "os_Fedora_21:&hardware_MacBookPro11,1"
   sudo: yes
   roles:
@@ -17,6 +17,19 @@
     - mbp-hardware/fedora/keyboard
     - mbp-hardware/fedora/wireless
     - mbp-hardware/fedora/suspend-fix
+    - mbp-hardware/all/colour-profile
+  tags:
+    - base
+    - hardware
+
+- name: Hardware setup - Fedora/MBP 12,1
+  hosts: "os_Fedora_21:&hardware_MacBookPro12,1"
+  sudo: yes
+  roles:
+    - mbp-hardware/fedora/mbpfan
+    - { role: source/all/repo, packages: ["tlp", "tlp-rdw"] }
+    - mbp-hardware/fedora/keyboard
+    # - mbp-hardware/fedora/suspend-fix
     - mbp-hardware/all/colour-profile
   tags:
     - base

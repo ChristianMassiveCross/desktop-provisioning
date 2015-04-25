@@ -4,6 +4,7 @@ Ansible provisioning for my desktop machines running Linux
 ## Supported environments
 Hardware:
 * MacBook Pro 11,1
+* MacBook Pro 12,1
 
 Distributions:
 * Fedora 21

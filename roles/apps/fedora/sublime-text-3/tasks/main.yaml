@@ -1,3 +1,6 @@
+- name: Put Sublime Text 3 folder into place
+  file: state=directory dest="{{ sublime_config_folder }}/Packages/User"
+
 - name: Configure user preferences
   template: src="{{ item }}" dest="{{ sublime_config_folder }}/Packages/User/" mode=0644
   with_items:

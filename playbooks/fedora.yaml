@@ -87,6 +87,7 @@
   hosts: os_Fedora_21
   sudo: yes
   roles:
+    - apps/all/passwordmaker
     - role: source/all/repo
       packages:
         - terminator

@@ -1,0 +1,5 @@
+- name: Create folder for offline JavaScript version of passwordmaker 
+  file: state=directory dest=/opt/passwordmaker
+
+- name: Install offline JavaScript version of passwordmaker
+  copy: src=passwordmaker.html dest=/opt/passwordmaker/passwordmaker.html mode=755

@@ -3,6 +3,7 @@
   sudo: yes
   roles:
     - base/fedora/nas
+    - base/fedora/rpmfusion
   tags: base
 
 - name: Hardware setup - Fedora/MBP

@@ -1,7 +1,0 @@
-- name: Default to list view
-  gsetting: key=org.gnome.nautilus.preferences.default-folder-viewer value="'list-view'"
-  tags: gsetting
-
-- name: Enable tree view
-  gsetting: key=org.gnome.nautilus.list-view.use-tree-view value=true
-  tags: gsetting

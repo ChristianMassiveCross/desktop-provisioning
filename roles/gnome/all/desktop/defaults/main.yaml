@@ -1,0 +1,20 @@
+gnome_shell_enabled_extensions:
+  - user-theme@gnome-shell-extensions.gcampax.github.com
+  - impatience@gfxmonk.net
+  - topicons@adel.gadllah@gmail.com
+  - battery_status@milliburn.github.com
+  - GPaste@gnome-shell-extensions.gnome.org
+  - dash-to-dock@micxgx.gmail.com
+
+gnome_gsettings:
+  org.gnome.desktop.interface.clock-show-date: "true"
+  org.gnome.desktop.interface.icon-theme: "'Numix-Circle'"
+  org.gnome.desktop.interface.monospace-font-name: "'DejaVu Sans Mono 9'"
+  org.gnome.desktop.datetime.automatic-timezone: "true"
+  org.gnome.desktop.input-sources.xkb-options: "['caps:none']"
+  org.gnome.settings-daemon.plugins.xsettings.antialiasing: "'rgba'"
+  org.gnome.settings-daemon.plugins.xsettings.hinting: "'slight'"
+  org.gnome.shell.calendar.show-weekdate: "true"
+  org.gnome.shell.extensions.user-theme.name: "'elegance-colors'"
+  org.gnome.nautilus.preferences.default-folder-viewer: "'list-view'"
+  org.gnome.nautilus.list-view.use-tree-view: "true"

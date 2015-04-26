@@ -94,7 +94,7 @@
   sudo: no
   roles:
     - gnome/all/gvfs-mount
-    - gnome/all/nautilus
+    - gnome/all/desktop
   tags:
     - gnome
     - user-specific

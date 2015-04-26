@@ -16,7 +16,7 @@ def _split_key(full_key):
 
 def _set_value(full_key, value):
     schema, single_key = _split_key(full_key)
-    command = ['/usr/bin/gsettings', 'set', schema, single_key, value]
+    command = ['/usr/bin/gsettings', 'set', schema, single_key, str(value)]
     return subprocess.check_output(command).strip()
 
 
@@ -42,7 +42,7 @@ def main():
     value = module.params['value']
 
     old_value = _get_value(key)
-    changed = old_value != value
+    changed = old_value != str(value)
 
     if changed and not module.check_mode:
         _set_value(key, value)
@@ -50,7 +50,7 @@ def main():
     print json.dumps({
         'changed': changed,
         'key': key,
-        'value': value,
+        'value': str(value),
         'old_value': old_value
     })
 

@@ -2,6 +2,10 @@
   gsetting: key=org.gnome.shell.enabled-extensions value="['{{ gnome_shell_enabled_extensions | join("', '") }}']"
   tags: gsettings
 
+- name: Install Elegance colors theme file
+  copy: src=elegance-colors.ini dest={{ ansible_env["HOME"] }}/.config/elegance-colors/elegance-colors.ini mode=644
+  tags: gsettings
+
 - name: Configure gnome gsettings
   gsetting:
     key: "{{ item.key }}"

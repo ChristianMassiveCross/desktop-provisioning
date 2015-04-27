@@ -1,7 +1,10 @@
+- name: Check if mbpfan is installed
+  stat: path=/usr/sbin/mbpfan
+  register: mbpfan_binary
+
 - name: Unpack archive
   unarchive: src={{ mbpfan_archive_path }} dest=/tmp copy=no
-  args:
-    creates: /tmp/mbpfan
+  when: not mbpfan_binary.stat.exists
 
 - name: Copy binary
   command: cp /tmp/mbpfan/bin/mbpfan /usr/sbin

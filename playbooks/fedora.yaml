@@ -95,6 +95,7 @@
   roles:
     - gnome/all/gvfs-mount
     - gnome/all/directories
+    - gnome/all/data
     - gnome/all/desktop
   tags:
     - gnome

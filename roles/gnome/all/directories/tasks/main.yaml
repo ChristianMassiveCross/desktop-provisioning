@@ -1,0 +1,10 @@
+- name: Create data directories
+  file: state=directory name={{ ansible_env['HOME'] }}/{{ item }}
+  with_items:
+    - 0-incoming
+    - Audio
+    - Graphics
+    - Video
+
+- name: Configure data directories
+  copy: src=user-dirs.dirs dest={{ ansible_env['HOME'] }}/.config/user-dirs.dirs

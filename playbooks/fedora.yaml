@@ -106,6 +106,7 @@
     - apps/all/passwordmaker
     - role: source/all/repo
       packages:
+        - gparted
         - gitg
         - geary
         - california

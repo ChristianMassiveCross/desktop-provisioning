@@ -3,6 +3,7 @@
   sudo: yes
   roles:
     - base/fedora/nas
+    - base/fedora/yum
     - base/fedora/rpmfusion
   tags: base
 

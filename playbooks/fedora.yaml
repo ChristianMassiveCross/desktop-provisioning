@@ -51,6 +51,7 @@
         - media_codecs
         - adobe_flash
         # - dvd_playback
+    - base/all/fonts
   tags: base
 
 - name: Shell setup - Fedora

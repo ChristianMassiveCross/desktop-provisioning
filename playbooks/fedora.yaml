@@ -1,4 +1,4 @@
-- name: Basic filesystem setup - Fedora
+- name: Boostrap setup - Fedora
   hosts: os_Fedora_21
   sudo: yes
   roles:
@@ -6,6 +6,8 @@
     - base/fedora/yum
     - base/fedora/rpmfusion
   tags: base
+
+# - Hardware -----------------------------------
 
 - name: Hardware setup - Fedora/MBP 11,1
   hosts: "os_Fedora_21:&hardware_MacBookPro11,1"
@@ -36,13 +38,19 @@
     - base
     - hardware
 
+# - Base ---------------------------------------
+
 - name: Base setup - Fedora
   hosts: os_Fedora_21
-  sudo: True
+  sudo: yes
   roles:
     - role: source/fedora/fedy
       targets:
         - disk_io_scheduler
+        - font_rendering
+        - media_codecs
+        - adobe_flash
+        # - dvd_playback
   tags: base
 
 - name: Shell setup - Fedora
@@ -58,16 +66,7 @@
         - ranger
   tags: shell
 
-- name: Development setup - Fedora
-  hosts: os_Fedora_21
-  sudo: yes
-  roles:
-    - development/fedora/vagrant
-    - role: source/all/repo
-      packages:
-        - meld
-        - android-tools
-  tags: development
+# - Gnome --------------------------------------
 
 - name: Gnome3 setup - Fedora
   hosts: os_Fedora_21
@@ -75,10 +74,6 @@
   roles:
     - role: source/fedora/fedy
       targets:
-        - font_rendering
-        - media_codecs
-        # - dvd_playback
-        - adobe_flash
         - elegance_colors
         - numix_themes
     - role: source/all/repo
@@ -101,6 +96,8 @@
   tags:
     - gnome
     - user-specific
+
+# - Apps ---------------------------------------
 
 - name: Application setup - Fedora
   hosts: os_Fedora_21
@@ -129,3 +126,14 @@
   tags:
     - apps
     - user-specific
+
+- name: Development setup - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - development/fedora/vagrant
+    - role: source/all/repo
+      packages:
+        - meld
+        - android-tools
+  tags: development

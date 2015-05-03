@@ -106,7 +106,6 @@
     - apps/all/passwordmaker
     - role: source/all/repo
       packages:
-        - terminator
         - gitg
         - geary
         - california
@@ -121,6 +120,7 @@
   hosts: os_Fedora_21
   sudo: no
   roles:
+    - apps/fedora/terminator
     - apps/fedora/sublime-text-3
   tags:
     - apps

@@ -63,6 +63,7 @@
         - color_prompt
     - role: source/all/repo
       packages:
+        - vim
         - autojump
         - ranger
   tags: shell

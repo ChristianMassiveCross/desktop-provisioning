@@ -1,9 +1,9 @@
 {
+	"font_size": 9,
 	"ignored_packages":
 	[
 		"Vintage",
 		"Markdown"
 	],
-	"shift_tab_unindent": true,
-	"font_size": 9
+	"shift_tab_unindent": true
 }

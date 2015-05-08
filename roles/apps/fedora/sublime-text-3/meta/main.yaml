@@ -1,2 +1,0 @@
-dependencies:
-  - { role: source/fedora/fedy, targets: sublime_text3 }

@@ -1,2 +1,3 @@
 dependencies:
-  - { role: source/all/repo, packages: [hunspell-en, hunspell-de, hunspell-sv] }
+  - { role: source/all/repo, packages: [hunspell-en, hunspell-de, hunspell-sv], when: ansible_distribution == "Fedora" }
+  - { role: source/all/repo, packages: [myspell-en-gb, hunspell-de-de, hunspell-sv-se], when: ansible_distribution == "Ubuntu" }

@@ -1,6 +1,3 @@
-- name: Install terminator package
-  yum: state=installed name=terminator
-
 - name: Create config folder
   file: state=directory name={{ ansible_env['HOME'] }}/.config/terminator
 

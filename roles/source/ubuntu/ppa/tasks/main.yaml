@@ -1,0 +1,9 @@
+- name: Activates ppa {{ ppa }}
+  sudo: yes
+  apt_repository: repo="{{ ppa }}" state=present
+
+- name: Installes packages {{ packages }}
+  apt: name="{{ item }}" state=present
+  sudo: yes
+  with_items: packages
+

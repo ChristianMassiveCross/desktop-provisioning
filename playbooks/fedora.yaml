@@ -68,7 +68,7 @@
         - ranger
   tags: shell
 
-# - Gnome --------------------------------------
+# - Desktop --------------------------------------
 
 - name: Gnome3 setup - Fedora
   hosts: os_Fedora_21
@@ -124,8 +124,8 @@
   hosts: os_Fedora_21
   sudo: no
   roles:
-    - apps/fedora/terminator
-    - apps/fedora/sublime-text-3
+    - apps/all/terminator
+    - apps/all/sublime-text-3
   tags:
     - apps
     - user-specific

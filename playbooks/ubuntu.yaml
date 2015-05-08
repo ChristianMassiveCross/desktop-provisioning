@@ -1,3 +1,12 @@
+# - name: Boostrap setup - Ubuntu
+#   hosts: os_Ubuntu_14
+#   sudo: yes
+#   roles:
+#     - base/fedora/nas
+#   tags: base
+
+# - Hardware -----------------------------------
+
 - name: Hardware setup - Ubuntu
   hosts: "os_Ubuntu_14:&hardware_MacBookPro11,1"
   sudo: yes
@@ -5,8 +14,101 @@
     - apt: update_cache=yes cache_valid_time=360
     - apt: name=macfanctld state=latest
     - apt: name=aptitude state=latest
-    - apt: upgrade=yes
   roles:
     - mbp-hardware/ubuntu/power-management
     - mbp-hardware/ubuntu/keyboard
+    # - mbp-hardware/all/boot
+    # - mbp-hardware/all/colour-profile
 
+# - Base ---------------------------------------
+
+- name: Base setup - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: yes
+  roles:
+    - role: source/all/repo
+      packages:
+        - ubuntu-restricted-extras
+    # - base/all/fonts
+  tags: base
+
+- name: Shell setup - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: yes
+  roles:
+    - role: source/all/repo
+      packages:
+        - vim
+        - autojump # needs setup
+        - ranger
+  tags: shell
+
+# - Desktop --------------------------------------
+
+- name: Unity setup - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: yes
+  roles:
+    - role: source/all/repo
+      packages:
+        - unity-tweak-tool
+        - gnome-tweak-tool
+        - dconf-editor
+        - clipit
+    - gnome/all/spellcheck
+  tags: gnome
+
+- name: Gnome3 setup user specific - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: no
+  roles:
+    # - gnome/all/gvfs-mount
+    - gnome/all/directories
+    # - gnome/all/data
+    # - gnome/all/desktop
+  tags:
+    - gnome
+    - user-specific
+
+# - Apps ---------------------------------------
+
+- name: Application setup - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: yes
+  roles:
+    - apps/all/passwordmaker
+    - role: source/all/repo
+      packages:
+        - gparted
+        - gitg
+        - geary
+       # - california
+       # - antimicro
+        - tomahawk
+        - vlc
+    # - role: source/fedora/fedy
+    #   targets:
+    #     - google_chrome
+  tags: apps
+
+- name: Application setup user specific - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: no
+  roles:
+    - apps/all/terminator
+    - apps/all/sublime-text-3
+  tags:
+    - apps
+    - user-specific
+
+- name: Development setup - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: yes
+  roles:
+    # - development/fedora/vagrant
+    - role: source/all/repo
+      packages:
+        - meld
+        - android-tools-adb
+        - android-tools-fastboot
+  tags: development

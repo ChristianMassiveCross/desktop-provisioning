@@ -1,3 +1,9 @@
+- name: Create sublime config folders
+  file: state=directory name="{{ ansible_env['HOME'] }}/.config/sublime-text-3/{{ item }}" mode=775
+  with_items:
+    - Packages/User
+    - Installed Packages
+
 - name: Check if Package Control is Installed
   stat: path="{{ ansible_env['HOME'] }}/.config/sublime-text-3/Installed Packages/Package Control.sublime-package"
   register: pc_installed
@@ -5,9 +11,6 @@
 - name: Install Package Control
   script: install-package-control.py
   when: pc_installed.stat.exists != True
-
-- name: Create Packages/User folder
-  file: state=directory name="{{ ansible_env['HOME'] }}/.config/sublime-text-3/Packages/User" mode=775
 
 - name: Configure user preferences
   template: src="{{ item }}" dest='{{ ansible_env["HOME"] }}/.config/sublime-text-3/Packages/User/' mode=0644
@@ -17,3 +20,4 @@
     - Default (Linux).sublime-keymap
     - Preferences.sublime-settings
     - YAML.sublime-settings
+

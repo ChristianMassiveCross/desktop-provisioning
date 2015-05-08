@@ -1,1 +1,0 @@
-sublime_config_folder: '{{ ansible_env["HOME"] }}/.config/sublime-text-3'

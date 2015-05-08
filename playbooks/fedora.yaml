@@ -114,6 +114,7 @@
         - california
         - antimicro
         - tomahawk
+        - vlc
     - role: source/fedora/fedy
       targets:
         - google_chrome

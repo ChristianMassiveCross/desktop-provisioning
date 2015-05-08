@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "Make sure you have put in ssh keys before running this"
-echo disable > /sys/firmware/acpi/interrupts/gpe66
+read -p "Press [Enter] key to start boostrap process..."
 sudo apt-get update
 sudo apt-get install git python-pip python-yaml python-jinja2
 
@@ -14,4 +14,5 @@ mkdir Code
 cd Code
 git clone git@github.com:oolongbrothers/desktop-provisioning.git
 cd desktop-provisioning
-
+echo "If you have any, put your custom localhost.yaml host_vars file into ~/Code/desktop-provisoning/inventories/host_vars/localhost.yaml"
+echo "Then run: cd ~/Code/desktop-provisoning; ansible-playbook desktop-provisioning.yaml -i inventories/inventory --diff --ask-sudo-pass"

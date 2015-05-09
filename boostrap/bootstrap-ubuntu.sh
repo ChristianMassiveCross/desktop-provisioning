@@ -2,7 +2,7 @@
 echo "Make sure you have put in ssh keys before running this"
 read -p "Press [Enter] key to start boostrap process..."
 sudo apt-get update
-sudo apt-get install git python-pip python-yaml python-jinja2
+sudo apt-get install git python-pip python-yaml python-jinja2 aptitude
 
 #common part
 sudo pip install ansible==1.9.0.1

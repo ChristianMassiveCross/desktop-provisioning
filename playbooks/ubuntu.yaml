@@ -12,13 +12,14 @@
   sudo: yes
   pre_tasks:
     - apt: update_cache=yes cache_valid_time=360
-    - apt: name=macfanctld state=latest
-    - apt: name=aptitude state=latest
   roles:
-    - mbp-hardware/ubuntu/power-management
+    - { role: source/all/repo, packages: macfanctld }
+    - mbp-hardware/ubuntu/interrupt-fix
+    - { role: source/ubuntu/ppa, ppa: "ppa:linrunner/tlp", packages: ["tlp", "tlp-rdw"] }
+    - mbp-hardware/ubuntu/wifi-resume-fix
     - mbp-hardware/ubuntu/keyboard
-    # - mbp-hardware/all/boot
-    # - mbp-hardware/all/colour-profile
+    - mbp-hardware/all/boot
+    - mbp-hardware/all/colour-profile
 
 # - Base ---------------------------------------
 

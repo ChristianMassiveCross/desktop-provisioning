@@ -1,0 +1,2 @@
+- name: Fix wifi on resume
+  copy: src=99_wifi-resume-fix dest=/etc/pm/sleep.d/99_wifi-resume-fix mode=755

@@ -1,0 +1,4 @@
+# to find offending interrupts:
+# grep . -r /sys/firmware/acpi/interrupts/
+- name: Fix interrupt gpe66 hogging CPU
+  copy: src=rc.local dest=/etc/rc.local mode=755

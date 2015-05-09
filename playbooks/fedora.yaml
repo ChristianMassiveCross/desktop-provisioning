@@ -2,7 +2,7 @@
   hosts: os_Fedora_21
   sudo: yes
   roles:
-    - base/fedora/nas
+    - base/all/nas
     - base/fedora/yum
     - base/fedora/rpmfusion
   tags: base

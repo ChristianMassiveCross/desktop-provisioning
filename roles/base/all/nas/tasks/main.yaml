@@ -1,6 +1,3 @@
-- name: Install cifs
-  yum: name=cifs-utils state=present
-
 - name: Set up credentials file
   template: src=smbcredentials dest=/root/.smbcredentials mode=600
 

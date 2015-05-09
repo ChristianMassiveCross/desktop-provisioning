@@ -1,9 +1,9 @@
-# - name: Boostrap setup - Ubuntu
-#   hosts: os_Ubuntu_14
-#   sudo: yes
-#   roles:
-#     - base/fedora/nas
-#   tags: base
+- name: Boostrap setup - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: yes
+  roles:
+    - base/all/nas
+  tags: base
 
 # - Hardware -----------------------------------
 

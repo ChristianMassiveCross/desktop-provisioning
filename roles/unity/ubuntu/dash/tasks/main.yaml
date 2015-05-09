@@ -1,0 +1,6 @@
+- name: Configure unity gsettings
+  gsetting:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_dict: unity_gsettings
+  tags: gsettings

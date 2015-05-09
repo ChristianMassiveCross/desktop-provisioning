@@ -1,0 +1,2 @@
+dependencies:
+  - { role: source/all/repo, packages: [gnome-color-manager, argyll, libicc2, libcolord-gtk1, libimdi0], when: ansible_distribution == "Ubuntu" }

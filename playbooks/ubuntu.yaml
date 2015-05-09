@@ -115,3 +115,16 @@
         - android-tools-adb
         - android-tools-fastboot
   tags: development
+
+- name: Gaming setup - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: yes
+  roles:
+    - { role: source/ubuntu/ppa, ppa: "ppa:ryochan7/antimicro", packages: antimicro }
+    - { role: source/ubuntu/ppa, ppa: "ppa:falk-t-j/qtsixa", packages: qtsixa }
+    - { role: source/ubuntu/ppa, ppa: "ppa:guilhem-fr/performous-daily", packages: performous }
+    - { role: source/ubuntu/ppa, ppa: "ppa:tobydox/ultrastardx", packages: ultrastar-deluxe  }
+    # - role: source/all/repo
+    #   packages:
+    #     - steam
+  tags: gaming

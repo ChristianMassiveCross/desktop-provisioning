@@ -94,7 +94,8 @@
     - gnome/all/gvfs-mount
     - gnome/all/directories
     - gnome/all/data
-    - gnome/all/desktop
+    - gnome/all/shell
+    - gnome/all/nautilus
   tags:
     - gnome
     - user-specific

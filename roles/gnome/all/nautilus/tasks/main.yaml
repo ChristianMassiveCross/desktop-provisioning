@@ -1,0 +1,6 @@
+- name: Configure nautilus gsettings
+  gsetting:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_dict: nautilus_gsettings
+  tags: gsettings

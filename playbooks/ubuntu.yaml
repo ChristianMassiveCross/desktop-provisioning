@@ -27,6 +27,11 @@
   hosts: os_Ubuntu_14
   sudo: yes
   roles:
+    - role: source/ubuntu/ppa
+      ppa: ppa:mc3man/trusty-media
+      packages:
+        - ffmpeg
+        - gstreamer0.10-ffmpeg
     - role: source/all/repo
       packages:
         - ubuntu-restricted-extras

@@ -1,5 +1,5 @@
 - name: System detection
-  hosts: all
+  hosts: desktop
   tasks:
     - name: Dectects Linux distribution and version
       group_by: key=os_{{ ansible_distribution }}_{{ ansible_distribution_major_version }}

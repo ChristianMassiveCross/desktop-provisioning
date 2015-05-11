@@ -131,7 +131,7 @@
     - apps
     - user-specific
 
-- name: Development setup - Fedora
+- name: Development setup - Common - Fedora
   hosts: os_Fedora_21
   sudo: yes
   roles:
@@ -140,4 +140,14 @@
       packages:
         - meld
         - android-tools
+  tags: development
+
+- name: Development setup - Go - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: source/all/repo
+      packages:
+        - golang
+        - mercurial
   tags: development

@@ -1,10 +1,10 @@
 {
-	"extensions":
-	[
-		"yaml"
-	],
+    "extensions":
+    [
+        "yaml"
+    ],
 
-	// The number of spaces a tab is considered equal to
+    // The number of spaces a tab is considered equal to
     "tab_size": 2,
 
     // Set to true to insert spaces when tab is pressed

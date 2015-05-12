@@ -1,7 +1,8 @@
 {
     "extensions":
     [
-        "yaml"
+        "yaml",
+        "yml"
     ],
 
     // The number of spaces a tab is considered equal to

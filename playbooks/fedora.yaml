@@ -116,9 +116,7 @@
         - antimicro
         - tomahawk
         - vlc
-    - role: source/fedora/fedy
-      targets:
-        - google_chrome
+    - role: apps/fedora/chrome
   tags: apps
 
 - name: Application setup user specific - Fedora

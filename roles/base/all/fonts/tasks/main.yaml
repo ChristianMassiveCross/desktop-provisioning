@@ -1,7 +1,9 @@
-# `fc-cache -f -v` seems to be unnecessary, could it be that systemd takes care of this?
-
 - name: Creates fonts folder
   file: state=directory name=/usr/local/share/fonts
 
 - name: Installs fonts
   copy: src="{{ font_source_path }}/" dest=/usr/local/share/fonts/
+
+- name: Install Emoji support in Fedora
+  yum: name=gdouros-symbola-fonts state=installed
+  when: ansible_distribution == "Fedora"

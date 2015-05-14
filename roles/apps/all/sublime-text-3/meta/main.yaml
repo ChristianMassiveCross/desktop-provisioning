@@ -1,4 +1,3 @@
 dependencies:
-  - { role: source/fedora/fedy, targets: sublime_text3, when: ansible_distribution == "Fedora" }
+  - { role: apps/fedora/sublime-text-3-installation, when: ansible_distribution == "Fedora" }
   - { role: source/ubuntu/ppa, ppa: "ppa:webupd8team/sublime-text-3", packages: sublime-text-installer, when: ansible_distribution == "Ubuntu" }
-

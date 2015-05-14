@@ -1,0 +1,47 @@
+- name: Check if Sublime Text 3 is installed
+  stat: path=/opt/sublime_text_3/version
+  register: version_stat
+  changed_when: not version_stat.stat.exists
+
+- name: Resolve latest available Sublime Text 3 version and archive
+  set_fact:
+    resolved_latest_version: "{{ lookup('pipe', 'curl -s http://www.sublimetext.com/3 | grep -o \"<p>Sublime Text 3 is currently in beta. The latest build is [0-9]*\" | tr \" \" \"\n\" | tail -n 1') }}"
+    resolved_latest_archive_url: "{{ lookup('pipe', 'curl -s http://www.sublimetext.com/3 | tr \" \" \"\n\" | grep -o \"https\\?://.*/sublime_text_3_build_[0-9]*_x64.tar.bz2\"') }}"
+
+- name: Resolve installed version
+  command: cat /opt/sublime_text_3/version
+  when: version_stat.stat.exists
+  register: installed_version
+  changed_when: installed_version.stdout < resolved_latest_version
+
+- name: Download latest version
+  get_url: url={{ resolved_latest_archive_url }} dest=/tmp/sublime-text-3.tar.bz2 force=yes
+  changed_when: yes
+  when: not version_stat.stat.exists or installed_version.stdout < resolved_latest_version
+  register: new_archive_downloaded
+
+- name: Unpacks archive
+  unarchive: src=/tmp/sublime-text-3.tar.bz2 dest=/opt/
+  sudo: yes
+  when: new_archive_downloaded.changed
+  register: files_updated
+
+- name: Install sublime text icons
+  script: sublime-icons-install.sh
+  sudo: yes
+  when: files_updated.changed
+
+- name: Link sublime_text binary to /usr/bin
+  file: state=link src=/opt/sublime_text_3/sublime_text dest=/usr/bin/{{ item }}
+  sudo: yes
+  with_items:
+    - subl
+    - sublime_text
+
+- name: Install .desktop file
+  copy: src=sublime-text-3.desktop dest=/usr/share/applications/sublime-text-3.desktop mode=644
+  sudo: yes
+
+- name: Puts version information in place
+  copy: content={{ resolved_latest_version }} dest=/opt/sublime_text_3/version mode=644 force=yes
+  sudo: yes

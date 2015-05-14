@@ -20,4 +20,5 @@
     - Default (Linux).sublime-keymap
     - Preferences.sublime-settings
     - Ansible.sublime-settings
+    - Pylinter.sublime-settings
     - YAML.sublime-settings

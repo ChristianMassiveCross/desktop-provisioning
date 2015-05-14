@@ -1,13 +1,16 @@
 {
-        "installed_packages":
-        [
-                "All Autocomplete",
-                "Ansible",
-                "Markdown Preview",
-                "MarkdownEditing",
-                "Package Control",
-                "Pretty JSON",
-                "SideBarEnhancements",
-                "URLEncode"
-        ]
+    "installed_packages":
+    [
+        "All Autocomplete",
+        "Ansible",
+        "GitGutter",
+        "Markdown Preview",
+        "MarkdownEditing",
+        "Package Control",
+        "Pretty JSON",
+        "SideBarEnhancements",
+        "SublimeCodeIntel",
+        "URLEncode"
+    ]
 }
+    

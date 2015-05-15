@@ -1,5 +1,5 @@
 {
-    "installed_packages":
+"installed_packages":
     [
         "All Autocomplete",
         "Ansible",
@@ -8,9 +8,10 @@
         "MarkdownEditing",
         "Package Control",
         "Pretty JSON",
-        "Pylinter",
         "SideBarEnhancements",
         "SublimeCodeIntel",
+        "SublimeLinter",
+        "SublimeLinter-pylint",
         "URLEncode"
     ]
 }

@@ -21,5 +21,5 @@
     // "F" : Fatal for errors which prevented further processing
     "ignore": [],
     // a list of strings of individual errors to disable, ex: ["C0301"]
-    "disable": []
+    "disable": ["C0301"]
 }

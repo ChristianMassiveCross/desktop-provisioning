@@ -14,11 +14,5 @@
 
 - name: Configure user preferences
   template: src="{{ item }}" dest='{{ ansible_env["HOME"] }}/.config/sublime-text-3/Packages/User/' mode=0644
-  with_items:
-    - Package Control.sublime-settings
-    - Default (Linux).sublime-mousemap
-    - Default (Linux).sublime-keymap
-    - Preferences.sublime-settings
-    - Ansible.sublime-settings
-    - Pylinter.sublime-settings
-    - YAML.sublime-settings
+  with_fileglob:
+    - ../templates/*

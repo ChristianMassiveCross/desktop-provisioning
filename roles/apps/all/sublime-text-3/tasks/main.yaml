@@ -16,3 +16,6 @@
   template: src="{{ item }}" dest='{{ ansible_env["HOME"] }}/.config/sublime-text-3/Packages/User/' mode=0644
   with_fileglob:
     - ../templates/*
+
+- name: Install reset font size command
+  copy: src=reset_font_size_command.py dest='{{ ansible_env["HOME"] }}/.config/sublime-text-3/Packages/User/' mode=0644

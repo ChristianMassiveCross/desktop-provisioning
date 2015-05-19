@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "Make sure you have put in ssh keys before running this"
 read -p "Press [Enter] key to start boostrap process..."
-sudo su -c "chown 'deltarpm=0' >> /etc/yum.conf"
+sudo su -c "echo 'deltarpm=0' >> /etc/yum.conf"
 sudo yum update -y
 sudo yum install -y python-pip python-yaml python-jinja2 python-crypto
 

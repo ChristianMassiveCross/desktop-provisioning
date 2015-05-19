@@ -1,0 +1,2 @@
+- name: Restart gnome-shell
+  command: killall -1 gnome-shell

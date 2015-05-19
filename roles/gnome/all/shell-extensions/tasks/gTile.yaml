@@ -1,0 +1,31 @@
+- name: Check if extension installed
+  stat: path={{ ansible_env['HOME'] }}/.local/share/gnome-shell/extensions/gTile@vibou
+  register: extension_folder
+
+- name: Download gTile dev archive
+  get_url: url=https://github.com/caseyching/vibou.gTile/archive/master.zip dest=/tmp/vibou.gTile-master.zip force=yes
+  changed_when: yes
+  when: not extension_folder.stat.exists
+  register: new_archive_downloaded
+
+- name: Unpack archive
+  unarchive: src=/tmp/vibou.gTile-master.zip dest=/tmp/
+  when: new_archive_downloaded.changed
+
+- name: Install extension
+  command: mv /tmp/vibou.gTile-master/ {{ ansible_env['HOME'] }}/.local/share/gnome-shell/extensions/gTile@vibou
+  when: new_archive_downloaded.changed
+  notify: Restart gnome-shell
+
+- name: Install gconf schema
+  command: cp {{ ansible_env['HOME'] }}/.local/share/gnome-shell/extensions/gTile@vibou/schemas/org.gnome.shell.extensions.gtile.gschema.xml /usr/share/glib-2.0/schemas/
+  sudo: yes
+  when: new_archive_downloaded.changed
+
+- name: Compile schemas
+  command: glib-compile-schemas /usr/share/glib-2.0/schemas/
+  sudo: yes
+  when: new_archive_downloaded.changed
+
+- name: Configure extension
+  gsetting: key=org.gnome.shell.extensions.gtile.show-toggle-tiling value="['<Super>space']"

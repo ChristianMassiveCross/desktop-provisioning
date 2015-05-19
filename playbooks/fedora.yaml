@@ -97,6 +97,7 @@
     - gnome/all/gvfs-mount
     - gnome/all/directories
     - gnome/all/data
+    - role: gnome/all/shell-extensions
     - gnome/all/shell
     - gnome/all/nautilus
   tags:

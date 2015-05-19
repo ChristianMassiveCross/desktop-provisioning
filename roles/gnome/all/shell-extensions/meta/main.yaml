@@ -1,0 +1,6 @@
+dependencies:
+  - role: source/all/gnome-shell-extension
+    uuid: gTile@vibou
+    url: https://github.com/caseyching/vibou.gTile/archive/master.zip
+    extension_config:
+      org.gnome.shell.extensions.gtile.show-toggle-tiling: "['<Super>space']"

@@ -1,14 +1,2 @@
-- set_fact:
-    gnome_shell_enabled_extensions:
-      - user-theme@gnome-shell-extensions.gcampax.github.com
-      - impatience@gfxmonk.net
-      - topIcons@adel.gadllah@gmail.com
-      - battery_status@milliburn.github.com
-      - GPaste@gnome-shell-extensions.gnome.org
-      - dash-to-dock@micxgx.gmail.com
-      - gTile@vibou
-
 - name: Configure enabled gnome shell extensions
   gsetting: key=org.gnome.shell.enabled-extensions value="['{{ gnome_shell_enabled_extensions | join("', '") }}']"
-
-- include: gTile.yaml

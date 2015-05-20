@@ -1,34 +1,45 @@
-- name: Check if {{ uuid }} is installed
+- name: Check {{ uuid }} target folder
   stat: path={{ ansible_env['HOME'] }}/.local/share/gnome-shell/extensions/{{ uuid }}
   register: extension_folder
 
+- name: Check if {{ uuid }} is installed
+  changed_when: not extension_folder.stat.exists
+  set_fact: extension_installed={{ extension_folder.stat.exists }}
+
+- name: Create unpacking directory
+  file: state=directory dest=/tmp/{{ uuid }}
+  when: not extension_installed
+
 - name: Download {{ uuid }} archive
-  get_url: url={{ url }} dest=/tmp/{{ uuid }}.zip force=yes
+  get_url: url={{ url }} dest=/tmp/{{ uuid }}.archive force=yes
   changed_when: yes
-  when: not extension_folder.stat.exists
-  register: new_archive_downloaded
+  when: not extension_installed and url is defined
 
 - name: Unpack {{ uuid }} archive
-  unarchive: src=/tmp/{{ uuid }}.zip dest=/tmp/
-  when: new_archive_downloaded.changed
+  unarchive: src=/tmp/{{ uuid }}.archive dest=/tmp/{{ uuid }}
+  when: not extension_installed and url is defined
+
+- name: Unpack {{ uuid }} archive
+  unarchive: src={{ file }} dest=/tmp/{{ uuid }}
+  when: not extension_installed and file is defined
 
 - name: Install {{ uuid }}
-  command: mv /tmp/{{ folder_in_archive | default("") }} {{ ansible_env['HOME'] }}/.local/share/gnome-shell/extensions/{{ uuid }}
-  when: new_archive_downloaded.changed
+  command: mv /tmp/{{ uuid }}/{{ folder_in_archive | default("") }} {{ ansible_env['HOME'] }}/.local/share/gnome-shell/extensions/{{ uuid }}
+  when: not extension_installed
   notify: Restart gnome-shell
 
 - name: Install {{ uuid }} gconf schema
   shell: cp {{ ansible_env['HOME'] }}/.local/share/gnome-shell/extensions/{{ uuid }}/schemas/*.gschema.xml /usr/share/glib-2.0/schemas/
   sudo: yes
-  when: new_archive_downloaded.changed
+  when: not extension_installed and extension_config is defined
 
 - name: Recompile {{ uuid }} gconf schemas
   command: glib-compile-schemas /usr/share/glib-2.0/schemas/
   sudo: yes
-  when: new_archive_downloaded.changed
+  when: not extension_installed and extension_config is defined
 
 - name: Configure extension {{ uuid }} gsettings
   gsetting:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
-  with_dict: extension_config
+  with_dict: extension_config | default({})

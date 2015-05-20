@@ -8,7 +8,31 @@ dependencies:
 
   - role: source/all/gnome-shell-extension
     uuid: impatience@gfxmonk.net
+    # url: http://gfxmonk.net/dist/0install/impl/gnome-shell-impatience/gnome-shell-impatience-0.4.3.tar.gz
     url: https://github.com/gfxmonk/gnome-shell-impatience/archive/master.zip
-    folder_in_archive: gnome-shell-impatience-master/impatience
+    folder_in_archive: impatience
     extension_config:
       org.gnome.shell.extensions.net.gfxmonk.impatience.speed-factor: 0.5
+
+  - role: source/all/gnome-shell-extension
+    uuid: dash-to-dock@micxgx.gmail.com
+    url: https://extensions.gnome.org/review/download/4964.shell-extension.zip
+    extension_config:
+      org.gnome.shell.extensions.dash-to-dock.dash-max-icon-size: 48
+
+  - role: source/all/gnome-shell-extension
+    uuid: battery_status@milliburn.github.com
+    # url: https://github.com/milliburn/gnome-shell-extension-battery_status/archive/v6.zip
+    url: https://github.com/milliburn/gnome-shell-extension-battery_status/archive/master.zip
+    # folder_in_archive: gnome-shell-extension-battery_status-6/battery_status@milliburn.github.com
+    folder_in_archive: gnome-shell-extension-battery_status-master/battery_status@milliburn.github.com
+    extension_config:
+      org.gnome.shell.extensions.battery_status.display-mode: "'time'"
+      org.gnome.shell.extensions.battery_status.when-full: "'icon'"
+
+  # https://aur.archlinux.org/packages/gnome-shell-extension-topicons/
+  - role: source/all/gnome-shell-extension
+    uuid: topIcons@adel.gadllah@gmail.com
+    url: http://94.247.144.115/repo/topicons/snapshot/topicons-26.tar.gz
+    # file: "{{ repository_path }}/binaries/all/gnome-shell-extensions/topicons-26.tar.gz"
+    folder_in_archive: topicons-26

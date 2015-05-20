@@ -1,33 +1,33 @@
-- name: Check if extension installed
+- name: Check if {{ uuid }} is installed
   stat: path={{ ansible_env['HOME'] }}/.local/share/gnome-shell/extensions/{{ uuid }}
   register: extension_folder
 
-- name: Download gTile dev archive
+- name: Download {{ uuid }} archive
   get_url: url={{ url }} dest=/tmp/{{ uuid }}.zip force=yes
   changed_when: yes
   when: not extension_folder.stat.exists
   register: new_archive_downloaded
 
-- name: Unpack archive
+- name: Unpack {{ uuid }} archive
   unarchive: src=/tmp/{{ uuid }}.zip dest=/tmp/
   when: new_archive_downloaded.changed
 
-- name: Install extension
-  command: mv /tmp/vibou.gTile-master/ {{ ansible_env['HOME'] }}/.local/share/gnome-shell/extensions/{{ uuid }}
+- name: Install {{ uuid }}
+  command: mv /tmp/{{ folder_in_archive | default("") }} {{ ansible_env['HOME'] }}/.local/share/gnome-shell/extensions/{{ uuid }}
   when: new_archive_downloaded.changed
   notify: Restart gnome-shell
 
-- name: Install gconf schema
+- name: Install {{ uuid }} gconf schema
   shell: cp {{ ansible_env['HOME'] }}/.local/share/gnome-shell/extensions/{{ uuid }}/schemas/*.gschema.xml /usr/share/glib-2.0/schemas/
   sudo: yes
   when: new_archive_downloaded.changed
 
-- name: Compile schemas
+- name: Recompile {{ uuid }} gconf schemas
   command: glib-compile-schemas /usr/share/glib-2.0/schemas/
   sudo: yes
   when: new_archive_downloaded.changed
 
-- name: Configure extension gsettings
+- name: Configure extension {{ uuid }} gsettings
   gsetting:
     key: "{{ item.key }}"
     value: "{{ item.value }}"

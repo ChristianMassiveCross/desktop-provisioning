@@ -1,7 +1,12 @@
 - name: Check if Flash plugin is installed
   command: rpm --quiet --query flash-plugin
+  failed_when: false
+  changed_when: flash_installed.rc != 0
   register: flash_installed
 
-- name: Install Flash
+- name: Enables Flash repo
   script: src=install-flash.sh
   when: flash_installed.rc != 0
+
+- name: Install Flash package
+  yum: name=flash-plugin state=present

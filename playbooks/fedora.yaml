@@ -49,12 +49,12 @@
         - disk_io_scheduler
         - font_rendering
         - media_codecs
-        - adobe_flash
         # - dvd_playback
     - role: source/all/repo
       packages:
         - openvpn
     - base/all/fonts
+    - base/fedora/flash
   tags: base
 
 - name: Shell setup user specific - Fedora

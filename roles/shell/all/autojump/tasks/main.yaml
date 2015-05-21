@@ -1,0 +1,6 @@
+- name: Configure autojump
+  lineinfile:
+    state: present
+    dest: "{{ ansible_env['HOME'] }}/.bashrc"
+    line: source /usr/share/autojump/autojump.sh
+  when: ansible_distribution == "Ubuntu"

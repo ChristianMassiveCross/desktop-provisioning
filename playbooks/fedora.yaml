@@ -67,8 +67,8 @@
     - role: source/all/repo
       packages:
         - vim
-        - autojump
         - ranger
+    - shell/all/autojump
   tags: shell
 
 # - Desktop --------------------------------------

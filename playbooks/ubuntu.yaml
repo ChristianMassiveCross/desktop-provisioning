@@ -39,16 +39,18 @@
     - base/all/fonts
   tags: base
 
-- name: Shell setup - Ubuntu
+- name: Shell setup user specific - Ubuntu
   hosts: os_Ubuntu_14
-  sudo: yes
+  sudo: no
   roles:
     - role: source/all/repo
       packages:
         - vim
-        - autojump # TODO needs setup
         - ranger
-  tags: shell
+    - shell/all/autojump
+  tags:
+    - shell
+    - user-specific
 
 # - Desktop --------------------------------------
 

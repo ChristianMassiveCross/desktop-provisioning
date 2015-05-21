@@ -61,15 +61,21 @@
   hosts: os_Fedora_21
   sudo: yes
   roles:
-    - role: source/fedora/fedy
-      targets:
-        - color_prompt
     - role: source/all/repo
       packages:
         - vim
         - ranger
-    - shell/all/autojump
+    - shell/all/colour-prompt
   tags: shell
+
+- name: Shell setup user specific - Fedora
+  hosts: os_Fedora_21
+  sudo: no
+  roles:
+    - shell/all/autojump
+  tags:
+    - shell
+    - user-specific
 
 # - Desktop --------------------------------------
 

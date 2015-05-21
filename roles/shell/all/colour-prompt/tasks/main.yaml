@@ -1,0 +1,2 @@
+- name: Configure colour prompt
+  copy: src=colour-prompt.sh dest=/etc/profile.d/colour-prompt.sh

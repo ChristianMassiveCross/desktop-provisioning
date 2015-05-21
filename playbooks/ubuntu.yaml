@@ -39,14 +39,21 @@
     - base/all/fonts
   tags: base
 
-- name: Shell setup user specific - Ubuntu
+- name: Shell setup - Ubuntu
   hosts: os_Ubuntu_14
-  sudo: no
+  sudo: yes
   roles:
     - role: source/all/repo
       packages:
         - vim
         - ranger
+    - shell/all/colour-prompt
+  tags: shell
+
+- name: Shell setup user specific - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: no
+  roles:
     - shell/all/autojump
   tags:
     - shell

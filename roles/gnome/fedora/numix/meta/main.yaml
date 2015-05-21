@@ -1,0 +1,22 @@
+dependencies:
+  - role: source/all/repo
+    packages: gtk-murrine-engine
+  
+  - role: source/fedora/extra_repo
+    repo_name: numix
+    packages:
+      - numix-gtk-theme
+      - numix-icon-theme
+      - numix-icon-theme-circle
+    repo_key_url: http://download.opensuse.org/repositories/home:/paolorotolo:/numix/Fedora_{{ ansible_distribution_major_version }}/repodata/repomd.xml.key
+    repo_file_content: |
+        [numix]
+        name=Numix
+        type=rpm-md
+        baseurl=http://download.opensuse.org/repositories/home:/paolorotolo:/numix/Fedora_\$releasever/
+        gpgkey=http://download.opensuse.org/repositories/home:/paolorotolo:/numix/Fedora_\$releasever/repodata/repomd.xml.key
+        gpgcheck=1
+        enabled=1
+        skip_if_unavailable=1
+        
+    when: ansible_distribution == "Fedora"

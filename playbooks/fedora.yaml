@@ -47,11 +47,8 @@
     - role: source/all/repo
       packages:
         - openvpn
-    - role: source/fedora/fedy
-      targets:
-        - disk_io_scheduler
-        - font_rendering
-        # - dvd_playback
+    - base/fedora/ssd-scheduler
+    - base/fedora/freetype
     - base/all/fonts
     - base/fedora/flash
     - base/fedora/codecs
@@ -77,15 +74,13 @@
   hosts: os_Fedora_21
   sudo: yes
   roles:
-    - role: source/fedora/fedy
-      targets:
-        - elegance_colors
-        - numix_themes
     - role: source/all/repo
       packages:
         - gnome-tweak-tool
         - dconf-editor
         - gnome-shell-extension-gpaste
+    - gnome/fedora/numix
+    - gnome/fedora/elegance_colors
     - gnome/all/spellcheck
     - gnome/all/power-commands
   tags: gnome

@@ -1,0 +1,11 @@
+- name: Installs udev rules for SSD schedulers
+  copy:
+    src: 60-io_schedulers.rules
+    dest: /etc/udev/rules.d/60-io_schedulers.rules
+    mode: 0644
+  register: udev_rules
+
+- name: Sets scheduler to noop for running session
+  shell: echo "noop" > /sys/block/{{ item }}/queue/scheduler
+  when: udev_rules.changed
+  with_items: ssd_disks

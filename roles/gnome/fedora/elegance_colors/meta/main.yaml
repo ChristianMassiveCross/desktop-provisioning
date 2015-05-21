@@ -1,0 +1,17 @@
+dependencies:
+  - role: source/fedora/extra_repo
+    repo_name: elegance-colors
+    packages:
+      - gnome-shell-theme-elegance-colors
+    repo_key_url: http://download.opensuse.org/repositories/home:/satya164:/elegance-colors/Fedora_{{ ansible_distribution_major_version }}/repodata/repomd.xml.key
+    repo_file_content: |
+        [elegance-colors]
+        name=Elegance Colors Gnome Shell theme
+        type=rpm-md
+        baseurl=http://download.opensuse.org/repositories/home:/satya164:/elegance-colors/Fedora_\$releasever/
+        gpgkey=http://download.opensuse.org/repositories/home:/satya164:/elegance-colors/Fedora_\$releasever/repodata/repomd.xml.key
+        gpgcheck=1
+        enabled=1
+        skip_if_unavailable=1
+        
+    when: ansible_distribution == "Fedora"

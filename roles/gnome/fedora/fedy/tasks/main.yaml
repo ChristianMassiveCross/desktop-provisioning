@@ -1,0 +1,8 @@
+- name: Check if fedy is already installed
+  stat: path=/etc/yum.repos.d/fedy.repo
+  register: fedy_repo
+  changed_when: False
+
+- name: Runs fedy installer
+  script: src=fedy-installer
+  when: fedy_repo.stat.exists is defined and not fedy_repo.stat.exists

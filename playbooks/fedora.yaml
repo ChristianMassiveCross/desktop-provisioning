@@ -44,17 +44,17 @@
   hosts: os_Fedora_21
   sudo: yes
   roles:
+    - role: source/all/repo
+      packages:
+        - openvpn
     - role: source/fedora/fedy
       targets:
         - disk_io_scheduler
         - font_rendering
-        - media_codecs
         # - dvd_playback
-    - role: source/all/repo
-      packages:
-        - openvpn
     - base/all/fonts
     - base/fedora/flash
+    - base/fedora/codecs
   tags: base
 
 - name: Shell setup user specific - Fedora

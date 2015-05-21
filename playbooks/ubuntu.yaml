@@ -98,9 +98,7 @@
         - gitg
         - tomahawk
         - vlc
-    # - role: source/fedora/fedy
-    #   targets:
-    #     - google_chrome
+    - apps/ubuntu/chrome
   tags: apps
 
 - name: Application setup user specific - Ubuntu

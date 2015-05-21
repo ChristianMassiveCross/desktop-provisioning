@@ -1,0 +1,8 @@
+dependencies:
+  - role: source/ubuntu/extra_repo
+    repo_name: google-chrome
+    packages: google-chrome-stable
+    repo_key_url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+    repo_file_content: |
+        deb http://dl.google.com/linux/chrome/deb/ stable main
+        

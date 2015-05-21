@@ -1,0 +1,15 @@
+- name: Enables {{ repo_name }} repo
+  copy: dest=/etc/apt/sources.list.d/{{ repo_name }}.list content="{{ repo_file_content }}"
+  register: repo_file
+
+- name: Add {{ repo_name }} repo key
+  shell: wget -q -O - {{ repo_key_url }} | apt-key add -
+  when: repo_file.changed
+
+- name: Update apt cache
+  apt: update_cache=true
+  when: repo_file.changed
+
+- name: Install {{ repo_name }} packages
+  apt: name={{ item }} state=installed
+  with_items: packages

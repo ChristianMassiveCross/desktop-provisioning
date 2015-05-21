@@ -5,4 +5,3 @@ gnome_shell_enabled_extensions:
   - battery_status@milliburn.github.com
   - GPaste@gnome-shell-extensions.gnome.org
   - dash-to-dock@micxgx.gmail.com
-  - gTile@vibou

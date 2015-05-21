@@ -1,0 +1,7 @@
+- name: Check if Flash plugin is installed
+  command: rpm --quiet --query flash-plugin
+  register: flash_installed
+
+- name: Install Flash
+  script: src=install-flash.sh
+  when: flash_installed.rc != 0

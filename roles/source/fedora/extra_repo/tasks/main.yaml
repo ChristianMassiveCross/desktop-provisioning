@@ -2,7 +2,7 @@
   copy:
     dest: /etc/yum.repos.d/{{ repo_name }}.repo
     content: "{{ repo_file_content }}"
-    mode: 775
+    mode: 0644
   register: repo_file
 
 - name: Add {{ repo_name }} repo key

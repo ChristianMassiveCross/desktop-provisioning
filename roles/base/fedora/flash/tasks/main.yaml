@@ -5,7 +5,7 @@
   register: flash_installed
 
 - name: Enables Flash repo
-  script: src=install-flash.sh
+  script: install-flash.sh
   when: flash_installed.rc != 0
 
 - name: Install Flash package

@@ -111,6 +111,7 @@
   sudo: yes
   roles:
     - apps/all/passwordmaker
+    - apps/all/chrome
     - role: source/all/repo
       packages:
         - gparted
@@ -121,7 +122,6 @@
         - antimicro
         - tomahawk
         - vlc
-    - role: apps/fedora/chrome
   tags: apps
 
 - name: Application setup user specific - Fedora

@@ -1,17 +1,14 @@
 - name: Enable {{ repo_name }} repo
   copy:
-    dest: /etc/apt/sources.list.d/{{ repo_name }}.list
+    dest: /etc/yum.repos.d/{{ repo_name }}.repo
     content: "{{ repo_file_content }}"
+    mode: 775
   register: repo_file
 
 - name: Add {{ repo_name }} repo key
-  shell: wget -q -O - {{ repo_key_url }} | apt-key add -
-  when: repo_file.changed
-
-- name: Update apt cache
-  apt: update_cache=true
+  command: rpm --import {{ repo_key_url }}
   when: repo_file.changed
 
 - name: Install {{ repo_name }} packages
-  apt: name={{ item }} state=installed
+  yum: name={{ item }} state=installed
   with_items: packages

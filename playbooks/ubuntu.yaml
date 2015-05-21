@@ -91,6 +91,7 @@
   sudo: yes
   roles:
     - apps/all/passwordmaker
+    - apps/all/chrome
     - { role: source/ubuntu/ppa, ppa: "ppa:yorba/ppa", packages: geary }
     - role: source/all/repo
       packages:
@@ -98,7 +99,6 @@
         - gitg
         - tomahawk
         - vlc
-    - apps/ubuntu/chrome
   tags: apps
 
 - name: Application setup user specific - Ubuntu

@@ -1,0 +1,5 @@
+- name: Configure synapse
+  copy: src=config.json dest={{ ansible_env["HOME"] }}/.config/synapse/config.json
+
+- name: Add synapse to autostart
+  copy: src=autostart.desktop dest={{ ansible_env["HOME"] }}/.config/autostart/synapse.desktop

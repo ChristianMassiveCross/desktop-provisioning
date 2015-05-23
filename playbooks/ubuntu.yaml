@@ -66,6 +66,7 @@
         - dconf-editor
         - clipit
     - gnome/all/spellcheck
+    - { role: source/ubuntu/ppa, ppa: "ppa:noobslab/apps", packages: indicator-synapse }
   tags:
     - gnome
     - unity

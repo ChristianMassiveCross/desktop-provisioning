@@ -37,6 +37,7 @@
         - ubuntu-restricted-extras
         - openvpn
     - base/all/fonts
+    - base/ubuntu/oracle-jdk
   tags: base
 
 - name: Shell setup user specific - Ubuntu
@@ -122,18 +123,10 @@
         - meld
   tags: development
 
-- name: Development setup - Java - Ubuntu
-  hosts: os_Ubuntu_14
-  sudo: yes
-  roles:
-    - base/ubuntu/oracle-jdk
-  tags: development
-
 - name: Development setup - Android - Ubuntu
   hosts: os_Ubuntu_14
   sudo: yes
   roles:
-    - base/ubuntu/oracle-jdk
     - role: source/all/repo
       packages:
         - android-tools-adb
@@ -151,6 +144,6 @@
     - { role: source/ubuntu/ppa, ppa: "ppa:falk-t-j/qtsixa", packages: qtsixa }
     - { role: source/ubuntu/ppa, ppa: "ppa:guilhem-fr/performous-daily", packages: performous }
     - { role: source/ubuntu/ppa, ppa: "ppa:tobydox/ultrastardx", packages: ultrastar-deluxe }
-    # TODO: Automate steam installation (when debconf license acceptance is fixed)
+    # TODO: Automate steam installation (when license acceptance via debconf is fixed)
     - { role: source/ubuntu/ppa, ppa: "ppa:minecraft-installer-peeps/minecraft-installer", packages: minecraft-installer }
   tags: games

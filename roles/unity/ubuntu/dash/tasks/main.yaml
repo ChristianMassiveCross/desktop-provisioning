@@ -3,4 +3,9 @@
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   with_dict: unity_gsettings
-  tags: gsettings
+
+- name: Configure unity dconf
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_dict: unity_dconf

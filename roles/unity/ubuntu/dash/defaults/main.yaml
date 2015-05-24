@@ -1,2 +1,13 @@
 unity_gsettings:
   "com.canonical.Unity.Lenses.remote-content-search": "'none'"
+  "org.gnome.desktop.wm.keybindings.activate-window-menu": "['<Primary><Alt>space']"
+  "org.gnome.desktop.wm.preferences.mouse-button-modifier": "'<Super>'"
+  "org.gnome.desktop.wm.preferences.resize-with-right-button": "true"
+  "org.compiz.integrated.show-hud": "['<Alt>space']"
+  "com.canonical.indicator.datetime.show-date": "true"
+
+# keys that are not present in a gsetting schema can be created with dconf directly
+unity_dconf:
+  "/org/compiz/profiles/unity/plugins/unityshell/shortcut-overlay": "false"
+  "/org/compiz/profiles/unity/plugins/unityshell/disable-show-desktop": "true"
+  "/org/compiz/profiles/unity/plugins/unityshell/background-color": "#212121ff"

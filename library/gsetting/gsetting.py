@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import json
-import re
 import subprocess
 
 from ansible.module_utils.basic import *
@@ -36,8 +35,6 @@ def main():
         supports_check_mode = True,
     )
 
-    params = module.params
-    state = module.params['state']
     key = module.params['key']
     value = module.params['value']
 

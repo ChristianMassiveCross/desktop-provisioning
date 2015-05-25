@@ -10,7 +10,7 @@ dependencies:
     uuid: impatience@gfxmonk.net
     # url: http://gfxmonk.net/dist/0install/impl/gnome-shell-impatience/gnome-shell-impatience-0.4.3.tar.gz
     url: https://github.com/gfxmonk/gnome-shell-impatience/archive/master.zip
-    folder_in_archive: impatience
+    folder_in_archive: gnome-shell-impatience-master/impatience
     extension_config:
       org.gnome.shell.extensions.net.gfxmonk.impatience.speed-factor: 0.5
 

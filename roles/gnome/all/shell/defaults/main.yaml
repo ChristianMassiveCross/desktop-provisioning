@@ -12,3 +12,6 @@ gnome_gsettings:
   org.gnome.mutter.overlay-key: "'<Primary><Shift>space'"
   org.gnome.mutter.keybindings.toggle-tiled-left: "['<Primary><Super>Left']"
   org.gnome.mutter.keybindings.toggle-tiled-right: "['<Primary><Super>Right']"
+  org.gnome.desktop.wm.keybindings.maximize: "['<Primary><Super>Up']"
+  org.gnome.desktop.wm.keybindings.unmaximize: "['<Primary><Super>Down']"
+  org.gnome.desktop.wm.keybindings.maximize-vertically: "['<Primary><Super><Shift>Up']"

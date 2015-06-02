@@ -130,7 +130,7 @@
   sudo: no
   roles:
     - apps/all/terminator
-    - apps/all/sublime-text-3
+    - { role: apps/all/sublime-text-3, tags: update }
   tags:
     - apps
     - user-specific

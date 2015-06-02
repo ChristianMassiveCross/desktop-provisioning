@@ -140,6 +140,7 @@
       packages:
         - meld
         - android-tools
+        - docker
   tags: development
 
 - name: Development setup - Go - Fedora

@@ -1,0 +1,6 @@
+- name: Set selinux into permissive mode
+  lineinfile:
+    dest: /etc/selinux/config
+    regexp: ^SELINUX=
+    line: SELINUX=permissive
+  tags: current

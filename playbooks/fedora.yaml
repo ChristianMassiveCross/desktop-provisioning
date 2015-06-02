@@ -55,6 +55,7 @@
     - base/all/fonts
     - base/fedora/flash
     - base/fedora/codecs
+    - base/fedora/selinux
   tags: base
 
 - name: Shell setup user specific - Fedora

@@ -49,6 +49,7 @@
         - openvpn
         # needed for ldd to digest 32bit binaries
         - glibc.i686
+        - icedtea-web
     - base/fedora/ssd-scheduler
     - base/fedora/freetype
     - base/all/fonts

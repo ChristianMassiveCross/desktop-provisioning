@@ -37,7 +37,7 @@
         - ubuntu-restricted-extras
         - openvpn
     - base/all/fonts
-    - base/ubuntu/oracle-jdk
+    - base/all/oracle-jdk
   tags: base
 
 - name: Shell setup user specific - Ubuntu

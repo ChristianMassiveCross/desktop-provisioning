@@ -47,6 +47,8 @@
     - role: source/all/repo
       packages:
         - openvpn
+        # needed for ldd to digest 32bit binaries
+        - glibc.i686
     - base/fedora/ssd-scheduler
     - base/fedora/freetype
     - base/all/fonts

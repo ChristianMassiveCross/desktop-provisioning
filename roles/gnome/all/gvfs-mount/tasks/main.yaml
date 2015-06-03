@@ -3,16 +3,25 @@
   changed_when: false
   register: uid
 
+- name: Check if nas is mounted
+  shell: |
+      gvfs-mount --list |
+      grep smb://{{ nas_smb_share_host }}/{{ nas_smb_share_name }}/
+  failed_when: false
+  register: mounted
+  changed_when: mounted.rc == 1
+
 - name: Add mount-nas.desktop file to autostart
-  copy: src=mount-nas.desktop dest={{ ansible_env["HOME"] }}/.config/autostart/
+  template:
+    src: mount-nas.desktop
+    dest: '{{ ansible_env["HOME"] }}/.config/autostart/'
 
 - name: Try to mount nas (if this fails, you may need to log into the smb share manually in nautilus and save the credentials permanently to the gnome keyring)
-  command:
-    name: gvfs-mount smb://nas.home/data/
-    creates: '/run/user/{{ uid.stdout }}/gvfs/smb-share:server=nas.home,share=data'
+  shell: gvfs-mount smb://{{ nas_smb_share_host }}/{{ nas_smb_share_name }}/
+  when: mounted.rc == 1
 
 - name: Link gvfs mount to ~/nas
   file:
     state: link
     path: '{{ ansible_env["HOME"] }}/nas'
-    src: '/run/user/{{ uid.stdout }}/gvfs/smb-share:server=nas.home,share=data'
+    src: '/run/user/{{ uid.stdout }}/gvfs/smb-share:server={{ nas_smb_share_host }},share={{ nas_smb_share_name }}'

@@ -5,6 +5,6 @@
   mount:
     state: mounted
     name: "{{ nas_smb_mountpoint }}"
-    src: "{{ nas_smb_share_url }}"
+    src: "//{{ nas_smb_share_host }}/{{ nas_smb_share_name}}"
     fstype: cifs
     opts: "credentials=/root/.smbcredentials,uid=root,gid=root"

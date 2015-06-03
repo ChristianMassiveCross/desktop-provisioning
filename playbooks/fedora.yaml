@@ -123,6 +123,7 @@
         - antimicro
         - tomahawk
         - vlc
+        - shutter
   tags: apps
 
 - name: Application setup user specific - Fedora

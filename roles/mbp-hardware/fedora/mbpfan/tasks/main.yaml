@@ -3,13 +3,24 @@
   register: mbpfan_binary
 
 - name: Unpack archive
-  unarchive: src={{ mbpfan_archive_path }} dest=/tmp copy=no
-  when: not mbpfan_binary.stat.exists
+  unarchive: src={{ archive_path }} dest=/tmp copy=no
+  when: |
+    not ( mbpfan_binary.stat.exists
+          and mbpfan_binary.stat.islnk
+          and mbpfan_binary.stat.lnk_source is defined
+          and mbpfan_binary.stat.lnk_source == "/usr/sbin/mbpfan-{{ version }}" )
 
 - name: Copy binary
-  command: cp /tmp/mbpfan/bin/mbpfan /usr/sbin
+  command: cp /tmp/mbpfan/bin/mbpfan /usr/sbin/mbpfan-{{ version }}
   args:
-    creates: /usr/sbin/mbpfan
+    creates: /usr/sbin/mbpfan-{{ version }}
+
+- name: Link binary
+  file:
+    state: link
+    src: /usr/sbin/mbpfan-{{ version }}
+    dest: /usr/sbin/mbpfan
+  notify: restart mbpfan.service
 
 - name: Copy configuration
   copy: src=mbpfan.conf dest=/etc/mbpfan.conf

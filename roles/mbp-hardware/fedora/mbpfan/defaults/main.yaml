@@ -1,1 +1,2 @@
-mbpfan_archive_path: "{{ repository_path }}/binaries/fedora_21/mbpfan-v1.8.0.tar.gz"
+version: v1.9.1
+archive_path: "{{ repository_path }}/binaries/fedora_21/mbpfan-{{ version }}.tar.gz"

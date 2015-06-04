@@ -56,6 +56,7 @@
     - base/fedora/flash
     - base/fedora/codecs
     - base/fedora/selinux
+    - base/all/oracle-jdk
   tags: base
 
 - name: Shell setup user specific - Fedora

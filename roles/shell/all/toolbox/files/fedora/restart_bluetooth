@@ -1,0 +1,5 @@
+#! /usr/bin/env sh
+systemctl stop bluetooth
+rmmod bnep btusb rfcomm hidp bluetooth | true
+modprobe bnep | true; modprobe btusb | true; modprobe rfcomm | true; modprobe hidp | true; modprobe bluetooth | true
+systemctl start bluetooth

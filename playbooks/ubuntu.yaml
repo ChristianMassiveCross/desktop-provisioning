@@ -50,6 +50,7 @@
         - ranger
     - shell/ubuntu/bashrc
     - shell/all/autojump
+    - shell/all/toolbox
   tags:
     - shell
     - user-specific

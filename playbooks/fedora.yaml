@@ -69,6 +69,7 @@
         - ranger
     - shell/fedora/colour-prompt
     - shell/all/autojump
+    - shell/all/toolbox
   tags:
     - shell
     - user-specific

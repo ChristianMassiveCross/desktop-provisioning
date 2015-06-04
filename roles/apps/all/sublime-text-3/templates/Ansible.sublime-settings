@@ -4,7 +4,6 @@
         "yaml",
         "yml"
     ],
-
-    // The number of spaces a tab is considered equal to
-    "tab_size": 2
+    "tab_size": 2,
+    "rulers": [80]
 }

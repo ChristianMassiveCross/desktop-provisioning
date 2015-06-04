@@ -1,8 +1,12 @@
 - name: Check if Oracle JDK is installed
   command: rpm --query --all jdk1.8*
   register: oracle_jdk_installed
-  changed_when: oracle_jdk_installed.rc == 0 and not oracle_jdk_installed.stdout.startswith("jdk1.8.0")
+  changed_when: |
+      oracle_jdk_installed.rc == 0
+      and not oracle_jdk_installed.stdout.startswith("jdk1.8.0")
 
 - name: Install latest Oracle JDK
   script: install-fedora.sh
-  when: oracle_jdk_installed.rc == 0 and not oracle_jdk_installed.stdout.startswith("jdk1.8.0")
+  when: |
+      oracle_jdk_installed.rc == 0
+      and not oracle_jdk_installed.stdout.startswith("jdk1.8.0")

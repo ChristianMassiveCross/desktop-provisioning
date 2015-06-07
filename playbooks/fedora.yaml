@@ -143,10 +143,10 @@
   sudo: yes
   roles:
     - development/fedora/vagrant
+    - development/all/android
     - role: source/all/repo
       packages:
         - meld
-        - android-tools
         - docker
   tags: development
 

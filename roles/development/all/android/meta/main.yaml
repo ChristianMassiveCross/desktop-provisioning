@@ -1,0 +1,17 @@
+dependencies:
+  - role: source/all/repo
+    packages:
+      - android-tools-adb
+      - android-tools-fastboot
+      # Helium 32bit dependencies
+      - libncurses5:i386
+      - libstdc++6:i386
+    when: ansible_distribution == "Ubuntu"
+
+  - role: source/all/repo
+    packages:
+      - android-tools
+      # Custom fastboot 32bit dependencies
+      - libstdc++.i686
+      - libgcc.i686
+    when: ansible_distribution == "Fedora"

@@ -120,22 +120,10 @@
   sudo: yes
   roles:
     # - development/fedora/vagrant
+    - development/all/android
     - role: source/all/repo
       packages:
         - meld
-  tags: development
-
-- name: Development setup - Android - Ubuntu
-  hosts: os_Ubuntu_14
-  sudo: yes
-  roles:
-    - role: source/all/repo
-      packages:
-        - android-tools-adb
-        - android-tools-fastboot
-        # helium adb dependencies
-        - libncurses5:i386
-        - libstdc++6:i386
   tags: development
 
 - name: Gaming setup - Ubuntu

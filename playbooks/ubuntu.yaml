@@ -133,10 +133,21 @@
   hosts: os_Ubuntu_14
   sudo: yes
   roles:
-    - { role: source/ubuntu/ppa, ppa: "ppa:ryochan7/antimicro", packages: antimicro }
-    - { role: source/ubuntu/ppa, ppa: "ppa:falk-t-j/qtsixa", packages: qtsixa }
-    - { role: source/ubuntu/ppa, ppa: "ppa:guilhem-fr/performous-daily", packages: performous }
-    - { role: source/ubuntu/ppa, ppa: "ppa:tobydox/ultrastardx", packages: ultrastar-deluxe }
-    # TODO: Automate steam installation (when license acceptance via debconf is fixed)
-    - { role: source/ubuntu/ppa, ppa: "ppa:minecraft-installer-peeps/minecraft-installer", packages: minecraft-installer }
+    - role: source/ubuntu/ppa
+      ppa: "ppa:ryochan7/antimicro"
+      packages: antimicro
+    - role: source/ubuntu/ppa
+      ppa: "ppa:falk-t-j/qtsixa"
+      packages: qtsixa
+    - role: source/ubuntu/ppa
+      ppa: "ppa:guilhem-fr/performous-daily"
+      packages: performous
+    - role: source/ubuntu/ppa
+      ppa: "ppa:tobydox/ultrastardx"
+      packages: ultrastar-deluxe
+    # TODO: Automate steam installation
+    #   (when license acceptance via debconf is fixed)
+    - role: source/ubuntu/ppa
+      ppa: "ppa:minecraft-installer-peeps/minecraft-installer"
+      packages: minecraft-installer
   tags: games

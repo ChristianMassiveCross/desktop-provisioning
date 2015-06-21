@@ -1,0 +1,14 @@
+- name: Import AirVPN package signing key
+  rpm_key:
+    state: present
+    key: https://airvpn.org/static/keys/maintainer.key
+
+- name: Install AirVPN package
+  yum:
+    state: present
+    name: https://airvpn.org/repository/2.9/airvpn_linux_x64_rpm.rpm
+
+- name: Configure AirVPN to run with PolicyKit
+  copy:
+    src: AirVPN.desktop
+    dest: /usr/share/applications/AirVPN.desktop

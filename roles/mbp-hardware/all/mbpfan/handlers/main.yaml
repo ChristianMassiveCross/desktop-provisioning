@@ -1,0 +1,2 @@
+- name: restart mbpfan.service
+  service: name=mbpfan state=restarted

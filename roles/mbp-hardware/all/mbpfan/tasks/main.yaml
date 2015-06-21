@@ -35,8 +35,16 @@
   args:
     creates: /usr/lib/systemd/system/mbpfan.service
   notify: restart mbpfan.service
+  when: ansible_distribution == "Fedora"
+
+- name: Install mbpfan.service
+  command: cp /tmp/mbpfan/mbpfan.upstart /etc/init/mbpfan.conf
+  args:
+    creates: /etc/init/mbpfan.conf
+  notify: restart mbpfan.service
+  when: ansible_distribution == "Ubuntu"
 
 - meta: flush_handlers
 
 - name: Start and enable mbpfan.service
-  service: name=mbpfan.service enabled=true state=started
+  service: name=mbpfan enabled=true state=started

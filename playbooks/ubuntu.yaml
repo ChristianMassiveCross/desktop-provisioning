@@ -13,9 +13,12 @@
   pre_tasks:
     - apt: update_cache=yes cache_valid_time=360
   roles:
-    - { role: source/all/repo, packages: macfanctld }
+    - role: mbp-hardware/all/mbpfan
+      tags: current
     - mbp-hardware/ubuntu/interrupt-fix
-    - { role: source/ubuntu/ppa, ppa: "ppa:linrunner/tlp", packages: ["tlp", "tlp-rdw"] }
+    - role: source/ubuntu/ppa
+      ppa: "ppa:linrunner/tlp"
+      packages: ["tlp", "tlp-rdw"]
     - mbp-hardware/ubuntu/wifi-resume-fix
     - mbp-hardware/ubuntu/keyboard
     - mbp-hardware/all/boot

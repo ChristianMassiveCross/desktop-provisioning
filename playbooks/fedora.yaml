@@ -13,8 +13,8 @@
   hosts: "os_Fedora_21:&hardware_MacBookPro11,1"
   sudo: yes
   roles:
+    - mbp-hardware/all/mbpfan
     - mbp-hardware/fedora/interrupt-fix
-    - mbp-hardware/fedora/mbpfan
     - { role: source/all/repo, packages: ["tlp", "tlp-rdw"] }
     - mbp-hardware/all/boot
     - mbp-hardware/fedora/keyboard
@@ -29,7 +29,7 @@
   hosts: "os_Fedora_21:&hardware_MacBookPro12,1"
   sudo: yes
   roles:
-    - mbp-hardware/fedora/mbpfan
+    - mbp-hardware/all/mbpfan
     - { role: source/all/repo, packages: ["tlp", "tlp-rdw"] }
     - mbp-hardware/fedora/keyboard
     - mbp-hardware/fedora/suspend-fix

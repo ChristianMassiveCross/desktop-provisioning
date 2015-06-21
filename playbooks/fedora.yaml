@@ -57,6 +57,7 @@
     - base/fedora/codecs
     - base/fedora/selinux
     - base/all/oracle-jdk
+    - role: base/fedora/airvpn
   tags: base
 
 - name: Shell setup user specific - Fedora

@@ -1,0 +1,4 @@
+#! /usr/bin/env sh
+echo "Deleting the following containers:"
+docker ps -a
+docker rm $(docker ps -a -q)

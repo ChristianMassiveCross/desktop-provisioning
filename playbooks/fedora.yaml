@@ -60,9 +60,9 @@
     - role: base/fedora/airvpn
   tags: base
 
-- name: Shell setup user specific - Fedora
+- name: Shell setup - Fedora
   hosts: os_Fedora_21
-  sudo: no
+  sudo: yes
   roles:
     - role: source/all/repo
       packages:
@@ -73,7 +73,6 @@
     - shell/all/toolbox
   tags:
     - shell
-    - user-specific
 
 # - Desktop --------------------------------------
 

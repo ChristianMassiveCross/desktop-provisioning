@@ -1,13 +1,13 @@
-- name: Create ~/.bin folder
-  file: state=directory dest="{{ ansible_env['HOME'] }}/.bin"
+- name: Create /usr/local/bin folder
+  file: state=directory dest="/usr/local/bin"
 
 - name: Copy common toolbox resources
-  copy: src=all/ dest={{ ansible_env['HOME'] }}/.bin mode=755
+  copy: src=all/ dest=/usr/local/bin mode=755
 
 - name: Copy Fedora-specific toolbox resources
-  copy: src=fedora/ dest={{ ansible_env['HOME'] }}/.bin mode=755
+  copy: src=fedora/ dest=/usr/local/bin mode=755
   when: ansible_distribution == "Fedora"
 
 - name: Copy Ubuntu-specific toolbox resources
-  copy: src=ubuntu/ dest={{ ansible_env['HOME'] }}/.bin mode=755
+  copy: src=ubuntu/ dest=/usr/local/bin mode=755
   when: ansible_distribution == "Ubuntu"

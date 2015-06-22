@@ -2,7 +2,8 @@
   hosts: os_Fedora_21
   sudo: yes
   roles:
-    - base/all/nas
+    - role: base/all/nas
+      tags: nas
     - base/fedora/yum
     - base/fedora/rpmfusion
   tags: base
@@ -52,7 +53,8 @@
         - icedtea-web
     - base/fedora/ssd-scheduler
     - base/fedora/freetype
-    - base/all/fonts
+    - role: base/all/fonts
+      tags: nas
     - base/fedora/flash
     - base/fedora/codecs
     - base/fedora/selinux
@@ -97,9 +99,11 @@
   hosts: os_Fedora_21
   sudo: no
   roles:
-    - gnome/all/gvfs-mount
+    - role: gnome/all/gvfs-mount
+      tags: nas
     - gnome/all/directories
-    - gnome/all/data
+    - role: gnome/all/data
+      tags: nas
     - gnome/all/shell-extensions
     - gnome/all/shell
     - gnome/all/nautilus

@@ -1,0 +1,26 @@
+- name: Check if heroku cli client is installed
+  stat: path=/usr/local/heroku/bin/heroku
+  register: heroku_client_installed
+
+- name: Download heroku cli client archive
+  get_url:
+    url: https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client.tgz
+    dest: /tmp/heroku-client.tgz
+    sha256sum: a33e5a4d9b59e1061f8b8be91b728e4fc3dbfd980ee89282fbce8e8c7c3c0471
+  when: not heroku_client_installed.stat.exists
+
+- name: Unpack heroku cli client archive
+  unarchive:
+    src: /tmp/heroku-client.tgz
+    dest: /usr/local
+  when: not heroku_client_installed.stat.exists
+
+- name: Rename heroku directory
+  command: mv /usr/local/heroku-client /usr/local/heroku
+  when: not heroku_client_installed.stat.exists
+
+- name: Add heroku binary to PATH
+  file:
+    state: link
+    src: /usr/local/heroku/bin/heroku
+    dest: /usr/local/bin/heroku

@@ -162,4 +162,18 @@
       packages:
         - golang
         - mercurial
+      when: |
+          development_environments is defined
+          and 'go' in development_environments
+  tags: development
+
+- name: Development setup - Heroku - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: development/all/heroku-cli
+      when: |
+          development_environments is defined
+          and 'heroku' in development_environments
+      tags: current
   tags: development

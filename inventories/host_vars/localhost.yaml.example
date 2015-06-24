@@ -6,3 +6,11 @@ nas_smb_share_user: user
 nas_smb_share_password: password
 nas_smb_workgroupname: workgroup
 nas_smb_mountpoint: /path-to/mountpoint
+
+# optional
+gnome_shell_enabled_extensions:
+  - user-theme@gnome-shell-extensions.gcampax.github.com
+
+# optional
+development_environments:
+    - go

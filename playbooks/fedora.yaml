@@ -177,3 +177,31 @@
           and 'heroku' in development_environments
       tags: current
   tags: development
+
+- name: Development setup - Ruby - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: source/all/repo
+      packages:
+        - ruby
+        - ruby-devel
+        - gcc-c++
+      when: |
+          development_environments is defined
+          and 'ruby' in development_environments
+      tags: current
+  tags: development
+
+- name: Development setup - Node.js - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: source/all/repo
+      packages:
+        - nodejs
+      when: |
+          development_environments is defined
+          and 'nodejs' in development_environments
+      tags: current
+  tags: development

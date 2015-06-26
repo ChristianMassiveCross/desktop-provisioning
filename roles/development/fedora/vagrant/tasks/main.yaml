@@ -9,3 +9,8 @@
 
 - name: Install VirtualBox and Vagrant packages
   yum: name=vagrant
+
+- name: Set default vagrant provider to virtualbox
+  lineinfile:
+    dest: /etc/environment
+    line: VAGRANT_DEFAULT_PROVIDER=virtualbox

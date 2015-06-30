@@ -12,7 +12,7 @@
         "SublimeCodeIntel",
         "SublimeLinter",
         "SublimeLinter-pylint",
+        "SublimeLinter-shellcheck",
         "URLEncode"
     ]
 }
-    

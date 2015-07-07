@@ -98,6 +98,7 @@
   roles:
     - apps/all/passwordmaker
     - apps/all/chrome
+    - apps/all/scudcloud
     - { role: source/ubuntu/ppa, ppa: "ppa:yorba/ppa", packages: geary }
     - role: source/all/repo
       packages:

@@ -20,8 +20,18 @@
   shell: gvfs-mount smb://{{ nas_smb_share_host }}/{{ nas_smb_share_name }}/
   when: mounted.rc == 1
 
-- name: Link gvfs mount to ~/nas
+- name: Create ~/.mount folder
+  file:
+    state: directory
+    path: '{{ ansible_env["HOME"] }}/.mount'
+
+- name: Link gvfs mount to ~/.mount/nas
   file:
     state: link
-    path: '{{ ansible_env["HOME"] }}/nas'
+    path: '{{ ansible_env["HOME"] }}/.mount/nas'
     src: '/run/user/{{ uid.stdout }}/gvfs/smb-share:server={{ nas_smb_share_host }},share={{ nas_smb_share_name }}'
+
+- name: Remove obsolete ~/nas
+  file:
+    state: absent
+    path: '{{ ansible_env["HOME"] }}/nas'

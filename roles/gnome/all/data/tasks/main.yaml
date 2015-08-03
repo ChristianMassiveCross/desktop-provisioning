@@ -1,5 +1,5 @@
 - name: Copy data from nas
   copy:
-    src: {{ ansible_env['HOME'] }}/.mount/nas/{{ item.value }}
-    dest: {{ ansible_env['HOME'] }}/{{ item.key }}
+    src: "{{ ansible_env['HOME'] }}/.mount/nas/{{ item.value }}"
+    dest: "{{ ansible_env['HOME'] }}/{{ item.key }}"
   with_dict: data_from_nas

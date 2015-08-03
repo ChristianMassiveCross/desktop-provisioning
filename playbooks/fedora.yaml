@@ -39,6 +39,17 @@
     - base
     - hardware
 
+- name: Hardware setup - Peripherials - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: peripherial-hardware/fedora/roccat-lua
+      when: |
+          peripherial_hardware is defined
+          and 'roccat-lua' in peripherial_hardware
+      tags: current
+  tags: development
+
 # - Base ---------------------------------------
 
 - name: Base setup - Fedora
@@ -204,5 +215,4 @@
       when: |
           development_environments is defined
           and 'nodejs' in development_environments
-      tags: current
   tags: development

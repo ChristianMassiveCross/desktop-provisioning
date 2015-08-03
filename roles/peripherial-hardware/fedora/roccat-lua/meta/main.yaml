@@ -1,0 +1,14 @@
+dependencies:
+  - role: source/fedora/extra_repo
+    repo_name: roccat-beduine
+    packages: roccat-lua
+    repo_key_url: http://www.beduine.de/repository/RPM-GPG-KEY-beduine
+    repo_file_content: |
+        [beduine]
+        name=beduine.de for Fedora $releasever $basearch - Tools
+        baseurl=http://beduine.de/repository/$releasever/Everything/$basearch
+        enabled=1
+        gpgcheck=1
+        gpgkey=http://beduine.de/repository/RPM-GPG-KEY-beduine
+
+    when: ansible_distribution == "Fedora"

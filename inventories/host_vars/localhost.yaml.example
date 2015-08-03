@@ -14,3 +14,7 @@ gnome_shell_enabled_extensions:
 # optional
 development_environments:
     - go
+
+# optional
+peripherial_hardware:
+  - roccat-mouse

@@ -43,7 +43,7 @@
   hosts: os_Fedora_21
   sudo: yes
   roles:
-    - role: peripherial-hardware/fedora/roccat-kova
+    - role: peripherial-hardware/fedora/roccat-kovaplus
       when: |
           peripherial_hardware is defined
           and 'roccat-kovaplus' in peripherial_hardware

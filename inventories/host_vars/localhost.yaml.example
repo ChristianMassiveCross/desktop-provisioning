@@ -17,4 +17,4 @@ development_environments:
 
 # optional
 peripherial_hardware:
-  - roccat-mouse
+  - roccat-kovaplus

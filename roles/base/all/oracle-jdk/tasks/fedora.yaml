@@ -10,3 +10,8 @@
   when: |
       oracle_jdk_installed.rc == 0
       and not oracle_jdk_installed.stdout.startswith("jdk1.8.0")
+
+- name: Set JAVA_HOME environment variable
+  lineinfile:
+    dest: /etc/environment
+    line: JAVA_HOME=/usr/java/default

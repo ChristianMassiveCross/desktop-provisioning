@@ -56,7 +56,6 @@
   sudo: yes
   roles:
     - role: base/fedora/ntp
-      tags: current
     - role: source/all/repo
       packages:
         - openvpn

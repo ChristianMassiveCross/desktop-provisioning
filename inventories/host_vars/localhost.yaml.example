@@ -7,14 +7,17 @@ nas_smb_share_password: password
 nas_smb_workgroupname: workgroup
 nas_smb_mountpoint: /path-to/mountpoint
 
-# optional
+
+# = Optional ==============================================
+
 gnome_shell_enabled_extensions:
   - user-theme@gnome-shell-extensions.gcampax.github.com
 
-# optional
 development_environments:
     - go
 
-# optional
 peripherial_hardware:
   - roccat-kovaplus
+
+ntp_servers:
+  - 0.fedora.pool.ntp.org

@@ -1,7 +1,8 @@
 {
 	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
-	"default_font_size": 9,
-	"font_size": 9,
+	"default_font_size": 11,
+	"font_face": "Inconsolata",
+	"font_size": 11,
 	"ignored_packages":
 	[
 		"Markdown",

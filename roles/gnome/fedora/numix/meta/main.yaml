@@ -1,8 +1,8 @@
 dependencies:
   - role: source/all/repo
     packages: gtk-murrine-engine
-  
-  - role: source/fedora/extra_repo
+
+  - role: source/fedora/extra-repo
     repo_name: numix
     packages:
       - numix-gtk-theme

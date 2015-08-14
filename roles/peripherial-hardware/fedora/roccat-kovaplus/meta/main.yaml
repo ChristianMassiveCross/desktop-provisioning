@@ -1,5 +1,5 @@
 dependencies:
-  - role: source/fedora/extra_repo
+  - role: source/fedora/extra-repo
     repo_name: roccat-beduine
     packages: roccat-kovaplus
     repo_key_url: http://www.beduine.de/repository/RPM-GPG-KEY-beduine

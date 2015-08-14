@@ -1,5 +1,5 @@
 dependencies:
-  - role: source/ubuntu/extra_repo
+  - role: source/ubuntu/extra-repo
     repo_name: google-chrome
     packages: google-chrome-stable
     repo_key_url: https://dl-ssl.google.com/linux/linux_signing_key.pub
@@ -8,7 +8,7 @@ dependencies:
 
     when: ansible_distribution == "Ubuntu"
 
-  - role: source/fedora/extra_repo
+  - role: source/fedora/extra-repo
     repo_name: google-chrome
     packages: google-chrome-stable
     repo_key_url: https://dl-ssl.google.com/linux/linux_signing_key.pub

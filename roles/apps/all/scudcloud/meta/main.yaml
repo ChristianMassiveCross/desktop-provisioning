@@ -3,8 +3,8 @@ dependencies:
     ppa: "ppa:rael-gc/scudcloud"
     packages: scudcloud
     when: ansible_distribution == "Ubuntu"
-  
-  - role: source/fedora/extra_repo
+
+  - role: source/fedora/extra-repo
     repo_name: scudcloud
     packages: scudcloud
     repo_key_url: http://download.opensuse.org/repositories/home:/moonwolf:/scudcloud/Fedora_21/repodata/repomd.xml.key

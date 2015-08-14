@@ -1,5 +1,5 @@
 dependencies:
-  - role: source/fedora/extra_repo
+  - role: source/fedora/extra-repo
     repo_name: elegance-colors
     packages:
       - gnome-shell-theme-elegance-colors

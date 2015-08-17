@@ -1,7 +1,7 @@
 gnome_gsettings:
   org.gnome.desktop.interface.clock-show-date: "true"
   org.gnome.desktop.interface.icon-theme: "'Numix-Circle'"
-  org.gnome.desktop.interface.font-name: "'Open Sans Semi-Light 10'"
+  org.gnome.desktop.interface.font-name: "'Open Sans 10'"
   org.gnome.desktop.interface.document-font-name: "'Sans 11'"
   org.gnome.desktop.interface.monospace-font-name: "'Droid Sans Mono 9'"
   org.gnome.desktop.datetime.automatic-timezone: "true"

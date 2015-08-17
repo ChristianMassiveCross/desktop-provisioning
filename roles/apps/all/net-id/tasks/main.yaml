@@ -1,0 +1,48 @@
+- name: Check if Net-ID is installed
+  stat:
+    path: /etc/iid
+  register: iid_installation
+
+# TODO: Move installer to local repo
+- name: Download Net-ID installer
+  get_url:
+    url: https://cve.trust.telia.com/TeliaElegNG/NetId/Restart?lang=on&approve=true#
+    sha256sum: 5ff8c3d458dd34d6cd72cae22864a30ae679a1f45699fa9f38f173c08554c472
+    dest: /tmp/iidsetup_64.tar.gz
+  when: not iid_installation.stat.exists
+
+- name: Unarchive installer
+  unarchive:
+    src: /tmp/iidsetup_64.tar.gz
+    dest: /tmp/
+  when: not iid_installation.stat.exists
+
+# Do not install browser extensions as root user
+- name: Install Net-ID system-wide
+  shell: yes n | ./install
+  args:
+    chdir: /tmp/iidsetup
+  sudo: True
+  when: not iid_installation.stat.exists
+
+- name: Install Net-ID in Firefox user account
+  command: ./install_pkcs11.sh
+  args:
+    chdir: /tmp/iidsetup
+  when: not iid_installation.stat.exists
+
+- name: Install Smart Card libraries and tools
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - pcsc-lite-ccid
+    - pcsc-tools
+  sudo: True
+
+- name: Start and enable pcscd service
+  service:
+    name: pcscd
+    state: started
+    enabled: True
+  sudo: True

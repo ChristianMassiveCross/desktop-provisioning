@@ -150,6 +150,7 @@
   roles:
     - apps/all/terminator
     - { role: apps/all/sublime-text-3, tags: update }
+    - apps/all/net-id
   tags:
     - apps
     - user-specific

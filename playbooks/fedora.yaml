@@ -161,10 +161,10 @@
   roles:
     - development/fedora/vagrant
     - development/all/android
+    - development/all/docker
     - role: source/all/repo
       packages:
         - meld
-        - docker
   tags: development
 
 - name: Development setup - Go - Fedora

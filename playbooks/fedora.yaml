@@ -150,7 +150,10 @@
   roles:
     - apps/all/terminator
     - { role: apps/all/sublime-text-3, tags: update }
-    - apps/all/net-id
+    - role: apps/all/net-id
+      when: |
+        optional_apps is defined
+        and 'net-id' in optional_apps
   tags:
     - apps
     - user-specific

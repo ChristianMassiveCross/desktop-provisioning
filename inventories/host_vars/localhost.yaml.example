@@ -19,5 +19,8 @@ development_environments:
 peripherial_hardware:
   - roccat-kovaplus
 
+optional_apps:
+    - net-id
+
 ntp_servers:
   - 0.fedora.pool.ntp.org

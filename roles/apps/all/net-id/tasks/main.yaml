@@ -1,6 +1,6 @@
 - name: Check if Net-ID is installed
   stat:
-    path: /etc/iid
+    path: "{{ ansible_env['HOME'] }}/.iid"
   register: iid_installation
 
 # TODO: Move installer to local repo
@@ -18,15 +18,8 @@
   when: not iid_installation.stat.exists
 
 # Do not install browser extensions as root user
-- name: Install Net-ID system-wide
-  shell: yes n | ./install
-  args:
-    chdir: /tmp/iidsetup
-  sudo: True
-  when: not iid_installation.stat.exists
-
-- name: Install Net-ID in Firefox user account
-  command: ./install_pkcs11.sh
+- name: Install Net-ID
+  shell: yes | ./install
   args:
     chdir: /tmp/iidsetup
   when: not iid_installation.stat.exists

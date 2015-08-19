@@ -1,0 +1,4 @@
+#! /usr/bin/env sh
+IDEA_HOME=/opt/intellij-idea-ultimate
+sed -i s/^-Dhidpi=.*$/-Dhidpi=true/g "$IDEA_HOME/bin/idea64.vmoptions" 
+exec "$IDEA_HOME/bin/idea.sh"

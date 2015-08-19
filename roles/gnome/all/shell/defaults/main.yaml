@@ -1,5 +1,5 @@
 gnome_gsettings:
-  org.gnome.desktop.wm.preferences.titelbar-font: "'Open Sans Semi-Bold 10'"
+  org.gnome.desktop.wm.preferences.titlebar-font: "'Open Sans Semi-Bold 10'"
   org.gnome.desktop.interface.clock-show-date: "true"
   org.gnome.desktop.interface.icon-theme: "'Numix-Circle'"
   org.gnome.desktop.interface.font-name: "'Open Sans 10'"

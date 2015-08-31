@@ -1,15 +1,27 @@
 - name: Check if Oracle JDK is installed
   command: rpm --query --all jdk1.8*
-  register: oracle_jdk_installed
+  register: oracle_jdk_not_installed
   changed_when: |
-      oracle_jdk_installed.rc == 0
-      and not oracle_jdk_installed.stdout.startswith("jdk1.8.0")
+      oracle_jdk_not_installed.rc == 0
+      and not oracle_jdk_not_installed.stdout.startswith("jdk1.8.0")
+
+- name: Resolve installed version
+  set_fact:
+    installed_version: "{{ oracle_jdk_not_installed.stdout.split('-')[0].split('_')[1] | default(0) }}"
+
+- name: Check latest available version
+  script: resolve-latest-version.sh
+  changed_when: new_version_available.stdout_lines[0] | int > installed_version | int
+  register: new_version_available
 
 - name: Install latest Oracle JDK
   script: install-fedora.sh
-  when: |
-      oracle_jdk_installed.rc == 0
-      and not oracle_jdk_installed.stdout.startswith("jdk1.8.0")
+  when: oracle_jdk_not_installed.changed or new_version_available.changed
+  register: new_version_installed
+
+- name: Uninstall old version
+  dnf: state=absent name=jdk1.8.0_{{ installed_version }}
+  when: new_version_installed.changed
 
 - name: Set JAVA_HOME environment variable
   lineinfile:

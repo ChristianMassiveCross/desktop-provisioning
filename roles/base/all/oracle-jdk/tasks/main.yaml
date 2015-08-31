@@ -3,3 +3,4 @@
 
 - include: fedora.yaml
   when: ansible_distribution == "Fedora"
+  tags: update

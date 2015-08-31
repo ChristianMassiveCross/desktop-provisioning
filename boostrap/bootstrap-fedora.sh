@@ -1,9 +1,9 @@
 #!/bin/sh
 echo "Make sure you have put in ssh keys before running this"
 read -p "Press [Enter] key to start boostrap process..."
-sudo su -c "echo 'deltarpm=0' >> /etc/yum.conf"
-sudo yum update -y
-sudo yum install -y python-pip python-yaml python-jinja2 python-crypto
+sudo su -c "echo 'deltarpm=0' >> /etc/dnf/dnf.conf"
+sudo dnf update -y
+sudo dnf install -y python-pip python-yaml python-jinja2 python-crypto
 
 #common part
 sudo pip install ansible==1.9.0.1

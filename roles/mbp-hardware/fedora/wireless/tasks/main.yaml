@@ -1,5 +1,5 @@
 - name: Broadcom wireless driver
-  yum: name={{ item }}
+  dnf: name={{ item }}
   with_items:
     - akmod-wl
     - kernel-devel

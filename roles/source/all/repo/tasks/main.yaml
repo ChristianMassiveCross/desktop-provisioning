@@ -1,5 +1,5 @@
 - name: Install packages from Fedora repositories
-  yum: state=present name={{ item }}
+  dnf: state=present name={{ item }}
   sudo: True
   with_items: packages
   when: ansible_distribution == "Fedora"

@@ -4,7 +4,7 @@
   roles:
     - role: base/all/nas
       tags: nas
-    - base/fedora/yum
+    - base/fedora/dnf
     - base/fedora/rpmfusion
   tags: base
 

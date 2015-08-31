@@ -9,4 +9,4 @@
   when: flash_installed.rc != 0
 
 - name: Install Flash package
-  yum: name=flash-plugin state=present
+  dnf: name=flash-plugin state=present

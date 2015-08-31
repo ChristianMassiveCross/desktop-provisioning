@@ -1,2 +1,0 @@
-- name: Turn off deltarpms
-  lineinfile: state=present line="deltarpm=0" dest=/etc/yum.conf

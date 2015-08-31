@@ -5,5 +5,5 @@
   copy: src="{{ font_source_path }}/" dest=/usr/local/share/fonts/
 
 - name: Install Emoji support in Fedora
-  yum: name=gdouros-symbola-fonts state=installed
+  dnf: name=gdouros-symbola-fonts state=installed
   when: ansible_distribution == "Fedora"

@@ -1,14 +1,14 @@
 - name: Install VirtualBox dependencies
-  yum: name=kernel-devel
+  dnf: name=kernel-devel
 
 - name: Install VirtualBox package
-  yum: name=VirtualBox
+  dnf: name=VirtualBox
 
 - name: Install VirtualBox akmod
-  yum: name=akmod-VirtualBox
+  dnf: name=akmod-VirtualBox
 
 - name: Install VirtualBox and Vagrant packages
-  yum: name=vagrant
+  dnf: name=vagrant
 
 - name: Set default vagrant provider to virtualbox
   lineinfile:

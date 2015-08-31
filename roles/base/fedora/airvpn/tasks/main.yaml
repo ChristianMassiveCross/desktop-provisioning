@@ -4,7 +4,7 @@
     key: https://airvpn.org/static/keys/maintainer.key
 
 - name: Install AirVPN package
-  yum:
+  dnf:
     state: present
     name: https://airvpn.org/repository/2.9/airvpn_linux_x64_rpm.rpm
 

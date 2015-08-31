@@ -1,5 +1,5 @@
 - name: Install Freetype Freeworld
-  yum: name=freetype-freeworld state=present
+  dnf: name=freetype-freeworld state=present
 
 - name: Configure Freetype
   copy: src=fonts.conf dest=/etc/fonts/local.conf mode=644

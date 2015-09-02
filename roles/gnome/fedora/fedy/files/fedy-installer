@@ -10,8 +10,7 @@ fi
 
 
 echo "Adding repositories..."
-rpm --quiet --query ozon-repos || dnf -y --nogpgcheck install http://goodies.ozon-os.com/repo/21/noarch/ozon-repos-21-5.fc21.noarch.rpm
-
+rpm --quiet --query ozon-repos || dnf -y --nogpgcheck install http://goodies.ozon-os.com/repo/$(rpm -E %fedora)/noarch/ozon-repos-$(rpm -E %fedora)-5.fc$(rpm -E %fedora).noarch.rpm
 
 echo "Installing fedy..."
 

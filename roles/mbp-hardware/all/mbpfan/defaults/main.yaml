@@ -1,2 +1,2 @@
 version: v1.9.1
-archive_path: "{{ repository_path }}/binaries/fedora_21/mbpfan-{{ version }}.tar.gz"
+archive_path: "{{ repository_path }}/binaries/fedora_{{ ansible_distribution_major_version }}/mbpfan-{{ version }}.tar.gz"

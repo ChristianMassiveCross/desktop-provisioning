@@ -4,5 +4,5 @@
 - name: Start and enable docker daemon
   service: name=docker state=started enabled=True
 
-- name: Add user to docker group
-  user: name={{ ansible_env['USER'] }} state=present groups=docker append=True
+- name: Removes docker group
+  group: name=docker state=absent

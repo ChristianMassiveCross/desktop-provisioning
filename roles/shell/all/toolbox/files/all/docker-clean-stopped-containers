@@ -1,4 +1,0 @@
-#! /usr/bin/env sh
-echo "Deleting the following containers:"
-docker ps -a | grep -n "Exited"
-docker rm $(docker ps -a | grep -n "Exited" | awk '{print $1}' | cut -b 3-)

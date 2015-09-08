@@ -1,0 +1,6 @@
+#! /usr/bin/env sh
+echo "Deleting the following images:"
+docker images --filter "dangling=true"
+echo "Deleting..."
+docker images -q --filter "dangling=true" | xargs docker rmi
+echo "Done"

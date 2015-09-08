@@ -1,0 +1,6 @@
+#! /usr/bin/env sh
+echo "Deleting the following containers:"
+docker ps --filter "status=exited"
+echo "Deleting..."
+docker ps -q --filter "status=exited" | xargs docker rm
+echo "Done"

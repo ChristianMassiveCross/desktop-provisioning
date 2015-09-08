@@ -1,13 +1,19 @@
 - name: Create /usr/local/bin folder
-  file: state=directory dest="/usr/local/bin"
+  file: state=directory dest="/usr/local/bin" mode=755
 
-- name: Copy common toolbox resources
-  copy: src=all/ dest=/usr/local/bin mode=755
+- name: Create /usr/local/sbin folder
+  file: state=directory dest="/usr/local/sbin" mode=755
 
-- name: Copy Fedora-specific toolbox resources
-  copy: src=fedora/ dest=/usr/local/bin mode=755
+- name: Copy common bin toolbox resources
+  copy: src=all/bin/ dest=/usr/local/bin mode=755
+
+- name: Copy common sbin toolbox resources
+  copy: src=all/sbin/ dest=/usr/local/sbin mode=755
+
+- name: Copy Fedora-specific sbin toolbox resources
+  copy: src=fedora/sbin/ dest=/usr/local/sbin mode=755
   when: ansible_distribution == "Fedora"
 
-- name: Copy Ubuntu-specific toolbox resources
-  copy: src=ubuntu/ dest=/usr/local/bin mode=755
+- name: Copy Ubuntu-specific bin toolbox resources
+  copy: src=ubuntu/bin/ dest=/usr/local/bin mode=755
   when: ansible_distribution == "Ubuntu"

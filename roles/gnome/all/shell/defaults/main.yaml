@@ -11,6 +11,8 @@ gnome_gsettings:
   org.gnome.settings-daemon.plugins.xsettings.hinting: "'slight'"
   org.gnome.shell.calendar.show-weekdate: "true"
   org.gnome.shell.extensions.user-theme.name: "'elegance-colors'"
+  org.gnome.shell.extensions.dash-to-dock.intellihide-perapp: "false"
+  org.gnome.shell.extensions.dash-to-dock.custom-theme-running-dots: "true"
   org.gnome.shell.app-switcher.current-workspace-only: "true"
   org.gnome.mutter.overlay-key: "'<Primary><Shift>space'"
   org.gnome.mutter.keybindings.toggle-tiled-left: "['<Primary><Super>Left']"

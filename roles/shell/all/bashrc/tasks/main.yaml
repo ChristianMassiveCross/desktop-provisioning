@@ -1,0 +1,11 @@
+- name: Creates ~/.environment.d directory
+  file:
+    state: directory
+    path: "{{ ansible_env['HOME'] }}/.environment.d"
+    mode: 0755
+
+- name: Configure .bashrc
+  copy:
+    src: bashrc.{{ ansible_distribution }}.sh
+    dest: "{{ ansible_env['HOME'] }}/.bashrc"
+    mode: 0644

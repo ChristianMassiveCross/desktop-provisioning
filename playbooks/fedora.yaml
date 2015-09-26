@@ -51,6 +51,30 @@
 
 # - Base ---------------------------------------
 
+- name: Shell setup user specific - Fedora
+  hosts: os_Fedora_21
+  sudo: no
+  roles:
+    - role: shell/all/bashrc
+    - shell/all/autojump
+  tags:
+    - shell
+    - user-specific
+
+- name: Shell setup - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: source/all/repo
+      packages:
+        - vim
+        - ranger
+    - shell/fedora/colour-prompt
+    - shell/fedora/sudo
+    - shell/all/toolbox
+  tags:
+    - shell
+
 - name: Base setup - Fedora
   hosts: os_Fedora_21
   sudo: yes
@@ -73,22 +97,6 @@
     - base/all/oracle-jdk
     - base/fedora/airvpn
   tags: base
-
-- name: Shell setup - Fedora
-  hosts: os_Fedora_21
-  sudo: yes
-  roles:
-    - role: source/all/repo
-      packages:
-        - vim
-        - ranger
-    - shell/fedora/colour-prompt
-    - shell/all/autojump
-    - role: shell/fedora/sudo
-      tags: current
-    - shell/all/toolbox
-  tags:
-    - shell
 
 # - Desktop --------------------------------------
 

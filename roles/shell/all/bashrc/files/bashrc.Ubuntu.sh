@@ -112,4 +112,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-source /usr/share/autojump/autojump.sh
+
+for FILE in $( find "$HOME/.environment.d" -type f -print | sort )
+do
+    source "$FILE"
+done

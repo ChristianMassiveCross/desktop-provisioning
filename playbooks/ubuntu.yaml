@@ -25,6 +25,29 @@
 
 # - Base ---------------------------------------
 
+- name: Shell setup user specific - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: no
+  roles:
+    - role: shell/all/bashrc
+    - shell/all/autojump
+  tags:
+    - shell
+    - user-specific
+
+- name: Shell setup - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: yes
+  roles:
+    - role: source/all/repo
+      packages:
+        - vim
+        - ranger
+    - shell/all/toolbox
+  tags:
+    - shell
+    - user-specific
+
 - name: Base setup - Ubuntu
   hosts: os_Ubuntu_14
   sudo: yes
@@ -42,22 +65,6 @@
     - base/all/fonts
     - base/all/oracle-jdk
   tags: base
-
-- name: Shell setup - Ubuntu
-  hosts: os_Ubuntu_14
-  sudo: yes
-  roles:
-    - role: source/all/repo
-      packages:
-        - vim
-        - ranger
-    - role: shell/ubuntu/bashrc
-      sudo: no
-    - shell/all/autojump
-    - shell/all/toolbox
-  tags:
-    - shell
-    - user-specific
 
 # - Desktop --------------------------------------
 

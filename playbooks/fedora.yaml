@@ -102,7 +102,6 @@
         - dconf-editor
         - gnome-shell-extension-gpaste
         - gnome-logs
-    - gnome/fedora/fedy
     - gnome/fedora/numix
     - gnome/fedora/elegance_colors
     - gnome/all/spellcheck

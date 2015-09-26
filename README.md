@@ -26,6 +26,6 @@ You need to configure your desktop provisioning setup. To do so, copy the `inven
 ## Run ansible provisioning
 Assuming all went well during the boostrap process, run the following command on your machine:
 
-    ansible-playbook desktop-provisioning.yaml -i inventories/inventory --diff --ask-sudo-pass
+    ansible-playbook desktop-provisioning.yaml -i inventories/inventory.ini --diff --ask-sudo-pass
 
-Which distribution you are running will be auto-detected.
+Which distribution and hardware you are running will be auto-detected. Nothing will happen if no supported distribution version is detected. Specific hardware tweaks will only applied if the harware is detected.

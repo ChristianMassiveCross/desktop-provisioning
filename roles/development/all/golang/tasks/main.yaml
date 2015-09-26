@@ -1,0 +1,10 @@
+- name: Create go base path
+  file:
+    state: directory
+    path: "{{ ansible_env['HOME'] }}/Code/go"
+
+- name: Set GOPATH environment variable
+  copy:
+    src: golang.env
+    dest: "{{ ansible_env['HOME'] }}/.environment.d/"
+    mode: 0755

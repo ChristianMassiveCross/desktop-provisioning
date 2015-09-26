@@ -185,15 +185,12 @@
 
 - name: Development setup - Go - Fedora
   hosts: os_Fedora_21
-  sudo: yes
+  sudo: no
   roles:
+    - development/all/golang
     - role: source/all/repo
       packages:
-        - golang
         - mercurial
-      when: |
-          development_environments is defined
-          and 'go' in development_environments
   tags: development
 
 - name: Development setup - Heroku - Fedora

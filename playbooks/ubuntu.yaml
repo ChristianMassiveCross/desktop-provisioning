@@ -42,15 +42,16 @@
     - base/all/oracle-jdk
   tags: base
 
-- name: Shell setup user specific - Ubuntu
+- name: Shell setup - Ubuntu
   hosts: os_Ubuntu_14
-  sudo: no
+  sudo: yes
   roles:
     - role: source/all/repo
       packages:
         - vim
         - ranger
-    - shell/ubuntu/bashrc
+    - role: shell/ubuntu/bashrc
+      sudo: no
     - shell/all/autojump
     - shell/all/toolbox
   tags:

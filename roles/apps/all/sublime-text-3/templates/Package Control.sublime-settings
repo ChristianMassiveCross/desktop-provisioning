@@ -1,11 +1,10 @@
 {
-    "installed_packages":
+"installed_packages":
     [
         "All Autocomplete",
         "Ansible",
         "GitGutter",
-        "GoSublime",
-        "ini",
+        "INI",
         "Markdown Preview",
         "MarkdownEditing",
         "Package Control",
@@ -15,6 +14,7 @@
         "SublimeLinter",
         "SublimeLinter-pylint",
         "SublimeLinter-shellcheck",
-        "URLEncode"
+        "URLEncode",
+        "GoSublime"
     ]
 }

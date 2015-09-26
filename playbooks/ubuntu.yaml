@@ -38,6 +38,7 @@
       packages:
         - ubuntu-restricted-extras
         - openvpn
+        - sshpass
     - base/all/fonts
     - base/all/oracle-jdk
   tags: base

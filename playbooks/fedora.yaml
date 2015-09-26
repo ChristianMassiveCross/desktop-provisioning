@@ -59,6 +59,7 @@
     - role: source/all/repo
       packages:
         - openvpn
+        - sshpass
         # needed for ldd to digest 32bit binaries
         - glibc.i686
         - icedtea-web

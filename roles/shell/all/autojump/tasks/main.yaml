@@ -1,5 +1,5 @@
 - name: Configure autojump
-  file:
+  copy:
     src: autojump.env
     dest: "{{ ansible_env['HOME'] }}/.environment.d/"
     mode: 0755

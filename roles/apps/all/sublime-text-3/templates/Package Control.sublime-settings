@@ -14,7 +14,8 @@
         "SublimeLinter",
         "SublimeLinter-pylint",
         "SublimeLinter-shellcheck",
-        "URLEncode",
+        "URLEncode"{% if development_environments is defined and 'go' in development_environments -%},
         "GoSublime"
+{%- endif %}
     ]
 }

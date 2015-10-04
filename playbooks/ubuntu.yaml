@@ -149,9 +149,7 @@
     - role: source/ubuntu/ppa
       ppa: "ppa:ryochan7/antimicro"
       packages: antimicro
-    - role: source/ubuntu/ppa
-      ppa: "ppa:falk-t-j/qtsixa"
-      packages: qtsixa
+    - gaming/ubuntu/qtsixa
     - role: source/ubuntu/ppa
       ppa: "ppa:guilhem-fr/performous-daily"
       packages: performous

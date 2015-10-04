@@ -1,0 +1,2 @@
+dependencies:
+  - { role: source/ubuntu/ppa, ppa: "ppa:falk-t-j/qtsixa", packages: [qtsixa] }

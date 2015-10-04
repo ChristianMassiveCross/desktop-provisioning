@@ -1,0 +1,2 @@
+dependencies:
+  - { role: source/ubuntu/ppa, ppa: "ppa:ryochan7/antimicro", packages: antimicro }

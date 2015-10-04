@@ -1,0 +1,6 @@
+- name: Put gamecontroller mapping profiles in place
+  template:
+    src: '{{ item }}'
+    dest: '{{ ansible_env["HOME"]}}/.config/antimicro/'
+  with_fileglob:
+    - "*.gamecontroller.amgp"

@@ -147,11 +147,9 @@
 
 - name: Gaming setup - Ubuntu
   hosts: os_Ubuntu_14
-  sudo: yes
+  sudo: no
   roles:
-    - role: source/ubuntu/ppa
-      ppa: "ppa:ryochan7/antimicro"
-      packages: antimicro
+    - gaming/ubuntu/antimicro
     - gaming/ubuntu/qtsixa
     - role: source/ubuntu/ppa
       ppa: "ppa:guilhem-fr/performous-daily"

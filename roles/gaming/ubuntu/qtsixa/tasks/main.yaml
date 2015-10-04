@@ -2,3 +2,4 @@
 
 - name: Makes bluetoothd executable
   file: dest=/usr/sbin/bluetoothd owner=root group=root mode=755
+  sudo: yes

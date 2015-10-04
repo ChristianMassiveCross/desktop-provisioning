@@ -1,3 +1,13 @@
+- name: Create antimicro settings folder
+  file:
+    state: directory
+    path: '{{ ansible_env["HOME"]}}/.config/antimicro'
+
+- name: Put settings file in place
+  template:
+    src: antimicro_settings.ini
+    dest: '{{ ansible_env["HOME"]}}/.config/antimicro/'
+
 - name: Put gamecontroller mapping profiles in place
   template:
     src: '{{ item }}'

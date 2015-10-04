@@ -161,4 +161,4 @@
     - role: source/ubuntu/ppa
       ppa: "ppa:minecraft-installer-peeps/minecraft-installer"
       packages: minecraft-installer
-  tags: games
+  tags: gaming

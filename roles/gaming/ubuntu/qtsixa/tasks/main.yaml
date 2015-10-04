@@ -1,2 +1,4 @@
+# To connect, PS3 controller, use `sudo service sixad start`
+
 - name: Makes bluetoothd executable
   file: dest=/usr/sbin/bluetoothd owner=root group=root mode=755

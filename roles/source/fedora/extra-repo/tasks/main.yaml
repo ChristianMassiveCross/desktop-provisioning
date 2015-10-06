@@ -7,6 +7,7 @@
 
 - name: Add {{ repo_name }} repo key
   rpm_key: state=present key={{ repo_key_url }}
+  when: repo_key_url is defined
 
 - name: Install {{ repo_name }} packages
   dnf: name={{ item }} state=installed

@@ -1,0 +1,16 @@
+- name: Create key import directory
+  file:
+    state: directory
+    path: /usr/local/share/rpm-key-from-file
+    mode: 0755
+
+- name: Put gpg file in place
+  copy:
+    content: "{{ key_content }}"
+    dest: /usr/local/share/rpm-key-from-file/{{ key_name }}
+    mode: 0644
+
+- name: Import key to rpm
+  rpm_key:
+    state: present
+    key: /usr/local/share/rpm-key-from-file/{{ key_name }}

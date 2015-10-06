@@ -1,0 +1,18 @@
+dependencies:
+  - role: source/fedora/rpm-key-from-file
+    key_name: nuvola_repo_key
+    key_content: "{{ nuvola_repo_key }}"
+
+  - role: source/fedora/extra-repo
+    repo_name: tiliado-nuvolaplayer
+    packages: nuvolaplayer3
+    repo_file_content: |
+        [tiliado-nuvolaplayer]
+        name=tiliado-nuvolaplayer
+        baseurl=https://tiliado.eu/nuvolaplayer/repository/rpm/fc{{ ansible_distribution_major_version }}/\$basearch/stable
+        enabled=1
+        gpgcheck=1
+        repo_gpgcheck=1
+        enabled_metadata=1
+
+    when: ansible_distribution == "Fedora"

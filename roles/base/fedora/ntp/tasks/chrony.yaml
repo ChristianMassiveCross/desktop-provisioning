@@ -1,0 +1,6 @@
+- name: Override default ntp servers in chrony
+  template: src=chrony.conf dest=/etc/chrony.conf mode=644
+  when: ntp_servers is defined
+
+- name: Enable and start chronyd
+  service: name=chronyd state=started enabled=true

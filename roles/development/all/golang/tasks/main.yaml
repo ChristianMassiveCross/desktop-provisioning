@@ -5,6 +5,6 @@
 
 - name: Set GOPATH environment variable
   copy:
-    src: golang.env
+    src: golang.sh
     dest: "{{ ansible_env['HOME'] }}/.environment.d/"
     mode: 0755

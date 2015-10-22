@@ -1,6 +1,6 @@
 - name: Configure autojump
   copy:
-    src: autojump.env
+    src: autojump.sh
     dest: "{{ ansible_env['HOME'] }}/.environment.d/"
     mode: 0755
   when: ansible_distribution == "Ubuntu"

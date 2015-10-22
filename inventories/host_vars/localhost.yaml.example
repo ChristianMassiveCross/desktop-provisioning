@@ -22,5 +22,7 @@ peripherial_hardware:
 optional_apps:
     - net-id
 
+work_domain: example.com
+
 ntp_servers:
   - 0.fedora.pool.ntp.org

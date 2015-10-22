@@ -1,0 +1,67 @@
+- name: Development setup - Common - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - development/fedora/vagrant
+    - development/all/android
+    - development/all/docker
+    - role: source/all/repo
+      packages:
+        - meld
+  tags: development
+
+- name: Development setup - Go - Fedora
+  hosts: os_Fedora_21
+  sudo: no
+  roles:
+    - development/all/golang
+    - role: source/all/repo
+      packages:
+        - mercurial
+  tags: development
+
+- name: Development setup - Heroku - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: development/all/heroku-cli
+      when: |
+          development_environments is defined
+          and 'heroku' in development_environments
+  tags: development
+
+- name: Development setup - Ruby - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: source/all/repo
+      packages:
+        - ruby
+        - ruby-devel
+        - gcc-c++
+      when: |
+          development_environments is defined
+          and 'ruby' in development_environments
+  tags: development
+
+- name: Development setup - Node.js - Fedora
+  hosts: os_Fedora_21
+  sudo: yes
+  roles:
+    - role: source/all/repo
+      packages:
+        - nodejs
+      when: |
+          development_environments is defined
+          and 'nodejs' in development_environments
+  tags: development
+
+- name: Development setup - molnet - Fedora
+  hosts: os_Fedora_21
+  sudo: no
+  roles:
+    - role: development/all/molnet
+      when: |
+          development_environments is defined
+          and 'molnet' in development_environments
+  tags: development

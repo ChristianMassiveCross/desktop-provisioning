@@ -1,0 +1,5 @@
+- name: Define moln bash alias
+  template:
+    src: molnet.sh
+    dest: "{{ ansible_env['HOME'] }}/.environment.d/"
+    mode: 0755

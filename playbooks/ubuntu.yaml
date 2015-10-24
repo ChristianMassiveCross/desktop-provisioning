@@ -23,6 +23,19 @@
     - mbp-hardware/ubuntu/keyboard
     - mbp-hardware/all/boot
     - mbp-hardware/all/colour-profile
+  tags:
+    - base
+    - hardware
+
+- name: Hardware setup - Peripherials - Ubuntu
+  hosts: os_Ubuntu_14
+  sudo: no
+  roles:
+    - role: peripherial-hardware/all/roccat-kovaplus
+      when: |
+          peripherial_hardware is defined
+          and 'roccat-kovaplus' in peripherial_hardware
+  tags: hardware
 
 # - Base ---------------------------------------
 

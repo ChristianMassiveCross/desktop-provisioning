@@ -12,3 +12,8 @@ dependencies:
         gpgkey=http://beduine.de/repository/RPM-GPG-KEY-beduine
 
     when: ansible_distribution == "Fedora"
+
+  - role: source/ubuntu/ppa
+    ppa: ppa:berfenger/roccat
+    packages: roccat-tools
+    when: ansible_distribution == "Ubuntu"

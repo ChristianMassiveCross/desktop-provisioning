@@ -78,7 +78,7 @@
         - openvpn
         - sshpass
     - role: base/all/fonts
-      tags: nas
+      tags: data_source
     - base/all/oracle-jdk
   tags: base
 
@@ -107,7 +107,7 @@
       tags: nas
     - gnome/all/directories
     - role: gnome/all/data
-      tags: nas
+      tags: data_source
     - unity/ubuntu/dash
     - gnome/all/nautilus
     - unity/ubuntu/synapse

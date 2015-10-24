@@ -1,5 +1,5 @@
-- name: Copy data from nas
+- name: Copy data from data source
   copy:
-    src: "{{ ansible_env['HOME'] }}/.mount/nas/{{ item.value }}"
+    src: "{{ data_source_path }}/{{ item.value }}"
     dest: "{{ ansible_env['HOME'] }}/{{ item.key }}"
-  with_dict: data_from_nas
+  with_dict: folders_from_data_source

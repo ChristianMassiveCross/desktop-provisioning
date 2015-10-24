@@ -1,1 +1,2 @@
-font_source_path: /media/nas/Grafik/fonts
+data_source_path: /media/nas
+font_source_path: "{{ data_source_path }}/Grafik/fonts"

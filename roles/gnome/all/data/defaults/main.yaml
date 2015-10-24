@@ -1,3 +1,4 @@
-data_from_nas:
+data_source_path: "{{ ansible_env['HOME'] }}/.mount/nas "
+folders_from_data_source:
   Graphics/Backgrounds: "Grafik/Backgrounds/0-selected/"
   Graphics/Avatars: "Grafik/Selbst/Avatare/0-selected/"

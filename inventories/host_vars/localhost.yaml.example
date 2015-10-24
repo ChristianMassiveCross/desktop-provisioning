@@ -10,6 +10,8 @@ nas_smb_mountpoint: /path-to/mountpoint
 
 # = Optional ==============================================
 
+data_source_path: /media/mydrive
+
 gnome_shell_enabled_extensions:
   - user-theme@gnome-shell-extensions.gcampax.github.com
 

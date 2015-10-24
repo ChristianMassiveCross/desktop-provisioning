@@ -9,6 +9,7 @@
   file: state=absent path=/etc/udev/rules.d/90-xhc_sleep.rules
 - name: Disables old systemd service
   service: state=stopped enabled=false name=disable-lid0-wakeup.service
+  when: ansible_distribution == "Fedora"
 - name: Remove old systemd service
   file: state=absent path=/usr/lib/systemd/system/disable-lid0-wakeup.service
 - name: Remove old systemd service

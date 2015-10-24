@@ -22,6 +22,7 @@
     - mbp-hardware/ubuntu/wifi-resume-fix
     - mbp-hardware/ubuntu/keyboard
     - mbp-hardware/all/boot
+    - mbp-hardware/all/suspend-fix
     - mbp-hardware/all/colour-profile
   tags:
     - base

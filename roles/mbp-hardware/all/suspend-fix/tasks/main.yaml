@@ -1,0 +1,11 @@
+# Check wakeups with `cat /proc/acpi/wakeup`
+
+# Disables wakeups form xhc/lid
+- name: Instate udev rule to prevent xhc/lid wakeups that prevent suspend
+  copy: src=90-xhc_lid_sleep.rules dest=/etc/udev/rules.d/
+
+# TODO: remove later
+- name: Remove old udev rules file
+  file: state=absent dest=/etc/udev/rules.d/90-xhc_sleep.rules
+- name: Remove old systemd service
+  file: state=absent dest=/usr/lib/systemd/system/disable-lid0-wakeup.service

@@ -20,7 +20,7 @@
     - mbp-hardware/all/boot
     - mbp-hardware/fedora/keyboard
     - mbp-hardware/fedora/wireless
-    - mbp-hardware/fedora/suspend-fix
+    - mbp-hardware/all/suspend-fix
     - mbp-hardware/all/colour-profile
   tags:
     - base
@@ -33,7 +33,7 @@
     - mbp-hardware/all/mbpfan
     - { role: source/all/repo, packages: ["tlp", "tlp-rdw"] }
     - mbp-hardware/fedora/keyboard
-    - mbp-hardware/fedora/suspend-fix
+    - mbp-hardware/all/suspend-fix
     - mbp-hardware/all/colour-profile
   tags:
     - base

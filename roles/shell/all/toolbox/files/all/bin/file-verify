@@ -1,0 +1,67 @@
+#!/bin/bash
+VENDOR_KEYRING=vendors.gpg
+
+# Look for signature files
+if [ -e "$1.sig" ]; then
+    EXTENSION="sig"
+elif [ -e "$1.asc" ]; then
+    EXTENSION="asc"
+elif [ -e "$1.gpg" ]; then
+    EXTENSION="gpg"
+elif [ -e "$1.pgp" ]; then
+    EXTENSION="pgp"
+fi
+# Fetch public key and verify file with signature
+if [ -n "$EXTENSION" ]; then
+    KEYID="0x$(gpg --verify "$1.$EXTENSION" "$1" 2>&1 | grep 'key ID' | awk '{print $NF}')"
+    gpg --no-default-keyring --keyring $VENDOR_KEYRING --recv-key "$KEYID"
+    gpg --keyring $VENDOR_KEYRING --verify "$1.$EXTENSION" "$1"
+    if [ $? != 0 ]; then
+        exit 1
+    fi
+else
+    echo "No GPG signature File"
+fi
+echo -e "\n"
+
+# Verify MD5 hash
+if [ -e "$1.md5" ]
+then
+    if md5sum "$1" | diff -i - "$1.md5" 2> /dev/null
+    then echo "Md5 hash match!"
+    else
+        echo "Md5 hash does not match!"
+        exit 1
+    fi
+else
+    echo "Md5 hash file not found."
+fi
+echo -e "\n"
+
+# Verify SHA1 hash
+if [ -e "$1.sha1" ]
+then
+    if sha1sum "$1" | diff -i - "$1.sha1" 2> /dev/null
+    then echo "Sha1 hash match!"
+    else
+        echo "Sha1 hash does not match!"
+        exit 1
+    fi
+else echo "Sha1 hash file not found."
+fi
+echo -e "\n"
+
+# Verify SHA256 hash
+if [ -e "$1.sha256" ]
+then
+    if sha256sum "$1" | diff -i - "$1.sha256" 2> /dev/null
+    then echo "Sha256 hash match!"
+    else
+        echo "Sha256 hash does not match!"
+        exit 1
+    fi
+else
+    echo "Sha256 hash file not found."
+fi
+
+exit 0

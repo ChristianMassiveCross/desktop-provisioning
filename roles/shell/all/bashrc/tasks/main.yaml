@@ -4,6 +4,12 @@
     path: "{{ ansible_env['HOME'] }}/.environment.d"
     mode: 0755
 
+- name: Puts in common environment file
+  copy:
+    src: common.sh
+    dest: "{{ ansible_env['HOME'] }}/.environment.d"
+    mode: 0644
+
 - name: Configure .bashrc
   copy:
     src: bashrc.{{ ansible_distribution }}.sh

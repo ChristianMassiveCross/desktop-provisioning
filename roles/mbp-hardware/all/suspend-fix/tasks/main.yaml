@@ -6,6 +6,10 @@
 
 # TODO: remove later
 - name: Remove old udev rules file
-  file: state=absent dest=/etc/udev/rules.d/90-xhc_sleep.rules
+  file: state=absent path=/etc/udev/rules.d/90-xhc_sleep.rules
+- name: Disables old systemd service
+  service: state=stopped enabled=false name=disable-lid0-wakeup.service
 - name: Remove old systemd service
-  file: state=absent dest=/usr/lib/systemd/system/disable-lid0-wakeup.service
+  file: state=absent path=/usr/lib/systemd/system/disable-lid0-wakeup.service
+- name: Remove old systemd service
+  file: state=absent path=/etc/systemd/system/multi-user.target.wants/disable-lid0-wakeup.service

@@ -94,6 +94,7 @@
         - gnome-tweak-tool
         - dconf-editor
         - clipit
+        - libreoffice-style-sifr
     - gnome/all/spellcheck
   tags:
     - gnome

@@ -15,7 +15,7 @@
     - apt: update_cache=yes cache_valid_time=360
   roles:
     - role: mbp-hardware/all/mbpfan
-    - mbp-hardware/ubuntu/interrupt-fix
+    # - mbp-hardware/ubuntu/interrupt-fix
     - role: source/ubuntu/ppa
       ppa: "ppa:linrunner/tlp"
       packages: ["tlp", "tlp-rdw"]

@@ -1,3 +1,9 @@
+- name: Create synapse config folder
+  file: state=directory path={{ ansible_env["HOME"] }}/.config/synapse
+
+- name: Create xdg autostart folder
+  file: state=directory path={{ ansible_env["HOME"] }}/.config/autostart
+
 - name: Configure synapse
   copy: src=config.json dest={{ ansible_env["HOME"] }}/.config/synapse/config.json
 

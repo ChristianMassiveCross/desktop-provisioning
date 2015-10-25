@@ -15,4 +15,4 @@ cd Code
 git clone git@github.com:oolongbrothers/desktop-provisioning.git
 cd desktop-provisioning
 echo "If you have any, put your custom localhost.yaml host_vars file into ~/Code/desktop-provisoning/inventories/host_vars/localhost.yaml"
-echo "Then run: cd ~/Code/desktop-provisoning; ansible-playbook desktop-provisioning.yaml -i inventories/inventory --diff --ask-sudo-pass"
+echo "Then run: cd ~/Code/desktop-provisoning; ansible-playbook desktop-provisioning.yaml -i inventories/inventory.ini --diff --ask-sudo-pass"

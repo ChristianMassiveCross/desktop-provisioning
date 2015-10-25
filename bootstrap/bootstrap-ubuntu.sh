@@ -5,7 +5,7 @@ sudo apt-get update
 sudo apt-get install git python-pip python-yaml python-jinja2 aptitude
 
 #common part
-sudo pip install ansible==1.9.0.1
+sudo pip install ansible==1.9.4
 git config --global user.name "Oolong Brothers"
 git config --global user.email oolongbrothers@gmx.net
 git config --global push.default simple

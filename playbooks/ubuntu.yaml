@@ -24,6 +24,7 @@
     - mbp-hardware/all/boot
     - mbp-hardware/all/suspend-fix
     - mbp-hardware/all/colour-profile
+    - mbp-hardware/ubuntu/wireless
   tags:
     - base
     - hardware

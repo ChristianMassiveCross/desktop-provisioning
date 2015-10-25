@@ -12,8 +12,7 @@ def _escape_single_quotes(string):
 
 
 def _set_value(key, value):
-    command = ['/usr/bin/dconf', 'write', key,
-            "'%s'" % _escape_single_quotes(value)]
+    command = ['/usr/bin/dconf', 'write', key, str(value)]
     return subprocess.check_output(command).strip()
 
 

@@ -165,6 +165,12 @@
   hosts: os_Ubuntu_14
   sudo: no
   roles:
+    # Install steam dependencies
+    - role: source/all/repo
+      packages:
+        - libc6:i386
+        - libgl1-mesa-dri-lts-vivid:i386
+        - libgl1-mesa-glx-lts-vivid:i386
     - gaming/ubuntu/antimicro
     - gaming/ubuntu/qtsixa
     - role: source/ubuntu/ppa

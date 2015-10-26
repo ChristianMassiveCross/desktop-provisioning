@@ -1,5 +1,7 @@
 # tools aliases
-alias ag="grep -rnw '.' -e \"design\""
+function ag() {
+    grep -rnw '.' -e "$1"
+}
 
 # ls aliases
 alias ll='ls -lF'
